@@ -13,7 +13,7 @@ describe "StaticPages" do
   
   
    describe "Home page" do
-    it "should have the content" + I18n.t(:main_app_title) do
+    it "should have the content " + I18n.t(:main_app_title) do
       visit '/static_pages/home'
       expect(page).to have_content(I18n.t(:main_app_title))
     end

@@ -1,5 +1,5 @@
 <% provide(:page_title, 'Home') %>
-<h1><%= t(:main_app_title)%> | <%= yield(:page_title) %></h1>
+<h1><%= full_title(yield(:page_title)) %></h1>
 <p>
   Go for it!<br/>
   <a href="/books"><%= t(:main_app_title)%></a>
