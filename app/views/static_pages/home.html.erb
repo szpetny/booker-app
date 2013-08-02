@@ -1,6 +1,12 @@
 <% provide(:page_title, 'Home') %>
+<div class="center hero-unit">
 <h1><%= full_title(yield(:page_title)) %></h1>
 <p>
   Go for it!<br/>
   <a href="/books"><%= t(:main_app_title)%></a>
+  
+  Or
+   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 </p>
+</div>
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
