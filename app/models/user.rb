@@ -1,15 +1,20 @@
 class User < ActiveRecord::Base
-   attr_accessor :name, :surname, :email
+  before_save { self.email = email.downcase }
+  
+  has_secure_password
 
-  def initialize(attributes = {})
-    @name  = attributes[:name]
-    @surname = attributes[:surname]
-    @email = attributes[:email]
-  end
-
-  def formatted_email
+=begin
+  def formatted_user_record
     "#{@name} #{@surname} <#{@email}>"
   end
+=end
+
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :name, presence: true, length: {maximum: 50}
+  validates :surname, length: {maximum: 50}
+  validates :email, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
+  validates :password, length: {minimum: 6}
   
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
 end
