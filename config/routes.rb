@@ -5,11 +5,17 @@ BookerApp::Application.routes.draw do
   
   match '/signup',  to: 'users#new',            via: 'get'
   
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  
   resources :books
 
   resources :authors
 
   resources :users
+  
+  resources :sessions, only: [:new, :create, :destroy]
   
   #root :to => "books#index"
   
