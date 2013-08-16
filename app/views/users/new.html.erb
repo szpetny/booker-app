@@ -1,12 +1,12 @@
-<% provide(:page_title, 'Sign up') %>
-<h1>Sign up</h1>
+<% provide(:page_title, titleize(t(:sign_up))) %>
+<h1><%= titleize(t(:sign_up))%></h1>
 
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
       <%= render 'fields', f: f %>
 
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+      <%= f.submit titleize(t(:create_account)), class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

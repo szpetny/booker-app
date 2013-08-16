@@ -1,18 +1,18 @@
-<h1>Listing books</h1>
+<h1><%= titleize(t(:books_index))%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Isbn</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Language</th>
-      <th>Description</th>
-      <th>Photo</th>
-      <th>Quantity</th>
-      <th>Place</th>
-      <th>Release date</th>
-      <th>Pages</th>
+      <th><%= titleize(t(:isbn))%></th>
+      <th><%= titleize(t(:title))%></th>
+      <th><%= titleize(t(:author))%></th>
+      <th><%= titleize(t(:language))%></th>
+      <th><%= titleize(t(:description))%></th>
+      <th><%= titleize(t(:photo))%></th>
+      <th><%= titleize(t(:quantity))%></th>
+      <th><%= titleize(t(:place))%></th>
+      <th><%= titleize(t(:release_date))%></th>
+      <th><%= titleize(t(:pages))%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -32,9 +32,9 @@
         <td><%= book.place %></td>
         <td><%= book.release_date %></td>
         <td><%= book.pages %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to titleize(t(:show)), book %></td>
+        <td><%= link_to titleize(t(:edit)), edit_book_path(book) %></td>
+        <td><%= link_to titleize(t(:destroy)), book, method: :delete, data: { confirm: titleize(t(:are_you_sure)) } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to titleize(t(:add_book)), new_book_path %>

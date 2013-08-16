@@ -8,4 +8,8 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+  
+  def titleize(str)
+    str.split(" ").map(&:capitalize).join(" ")
+  end
 end

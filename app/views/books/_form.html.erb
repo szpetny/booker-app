@@ -12,46 +12,46 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :isbn %><br>
+    <%= f.label :isbn, titleize(t(:isbn)) %><br>
     <%= f.text_field :isbn %>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title, titleize(t(:title)) %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :author_id %><br>
+    <%= f.label :author, titleize(t(:author)) %><br>
     <%= f.number_field :author_id %>
   </div>
   <div class="field">
-    <%= f.label :language %><br>
+    <%= f.label :language, titleize(t(:language)) %><br>
     <%= f.text_field :language %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description, titleize(t(:description)) %><br>
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :photo %><br>
+    <%= f.label :photo, titleize(t(:photo)) %><br>
     <%= f.text_field :photo %>
   </div>
   <div class="field">
-    <%= f.label :quantity %><br>
+    <%= f.label :quantity, titleize(t(:quantity)) %><br>
     <%= f.number_field :quantity %>
   </div>
   <div class="field">
-    <%= f.label :place %><br>
+    <%= f.label :place, titleize(t(:place)) %><br>
     <%= f.text_field :place %>
   </div>
   <div class="field">
-    <%= f.label :release_date %><br>
-    <%= f.date_select :release_date %>
+    <%= f.label :release_date, titleize(t(:release_date)) %><br>
+    <%= f.date_select :release_date, {:include_blank => true, :default => nil} %>
   </div>
   <div class="field">
-    <%= f.label :pages %><br>
+    <%= f.label :pages, titleize(t(:pages)) %><br>
     <%= f.number_field :pages %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit titleize(t(:save))%>
   </div>
 <% end %>

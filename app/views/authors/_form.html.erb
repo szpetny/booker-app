@@ -12,14 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, titleize(t(:name)) %><br>
     <%= f.text_field :name %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :surname %><br>
+    <%= f.label :surname, titleize(t(:surname)) %><br>
     <%= f.text_field :surname %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit titleize(t(:save)) %>
   </div>
 <% end %>

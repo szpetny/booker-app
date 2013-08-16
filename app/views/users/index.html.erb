@@ -1,5 +1,5 @@
-<% provide(:page_title, 'All users') %>
-<h1>All users</h1>
+<% provide(:page_title, titleize(t(:users_index))) %>
+<h1><%= titleize(t(:users_index))%></h1>
 
 <%= will_paginate %>
 

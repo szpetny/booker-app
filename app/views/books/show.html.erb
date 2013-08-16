@@ -1,54 +1,54 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Isbn:</strong>
+  <strong><%= titleize(t(:isbn)) %>:</strong>
   <%= @book.isbn %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= titleize(t(:title)) %>:</strong>
   <%= @book.title %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong><%= titleize(t(:author)) %>:</strong>
   <%= @book.author_id %>
 </p>
 
 <p>
-  <strong>Language:</strong>
+  <strong><%= titleize(t(:language)) %>:</strong>
   <%= @book.language %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= titleize(t(:description)) %>:</strong>
   <%= @book.description %>
 </p>
 
 <p>
-  <strong>Photo:</strong>
+  <strong><%= titleize(t(:photo)) %>:</strong>
   <%= @book.photo %>
 </p>
 
 <p>
-  <strong>Quantity:</strong>
+  <strong><%= titleize(t(:quantity)) %>:</strong>
   <%= @book.quantity %>
 </p>
 
 <p>
-  <strong>Place:</strong>
+  <strong><%= titleize(t(:place)) %>:</strong>
   <%= @book.place %>
 </p>
 
 <p>
-  <strong>Release date:</strong>
+  <strong><%= titleize(t(:release_date)) %>:</strong>
   <%= @book.release_date %>
 </p>
 
 <p>
-  <strong>Pages:</strong>
+  <strong><%= titleize(t(:pages)) %>:</strong>
   <%= @book.pages %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to titleize(t(:edit)), edit_book_path(@book) %> |
+<%= link_to titleize(t(:back)), books_path %>

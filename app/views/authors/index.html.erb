@@ -1,10 +1,10 @@
-<h1>Listing authors</h1>
+<h1><%= titleize(t(:authors_index))%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Surname</th>
+      <th>t(name)</th>
+      <th>t(surname)</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= author.name %></td>
         <td><%= author.surname %></td>
-        <td><%= link_to 'Show', author %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
-        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to titleize(t(:show)), author %></td>
+        <td><%= link_to titleize(t(:edit)), edit_author_path(author) %></td>
+        <td><%= link_to titleize(t(:destroy)), author, method: :delete, data: { confirm: titleize(t(:are_you_sure)) } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Author', new_author_path %>
+<%= link_to titleize(t(:add_author)), new_author_path %>

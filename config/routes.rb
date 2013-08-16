@@ -1,7 +1,9 @@
 BookerApp::Application.routes.draw do
-  root  'static_pages#home'
+  root  'books#index'
   
   match '/help',    to: 'static_pages#help',    via: 'get'
+  
+  match '/home',    to: 'static_pages#home',    via: 'get'
   
   match '/signup',  to: 'users#new',            via: 'get'
   

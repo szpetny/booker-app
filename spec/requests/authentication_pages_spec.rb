@@ -7,21 +7,21 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_content('Sign in') }
-    it { should have_title('Sign in') }
+    it { should have_content(titleize(I18n.t(:sign_in))) }
+    it { should have_title(titleize(I18n.t(:sign_in))) }
   end
 
   describe "signin" do
     before { visit signin_path }
 
     describe "with invalid information" do
-      before { click_button "Sign in" }
+      before { click_button titleize(I18n.t(:sign_in)) }
 
-      it { should have_title('Sign in') }
+      it { should have_title(titleize(I18n.t(:sign_in))) }
       it { should have_error_message('Invalid') }
 
       describe "after visiting another page" do
-        before { click_link "Home" }
+        before { click_link titleize(I18n.t(:home)) }
         it { should_not have_selector('div.alert.alert-error') }
       end
     end
@@ -31,15 +31,18 @@ describe "Authentication" do
       before { valid_signin(user) }
 
       it { should have_title(user.name) }
-      it { should have_link('Users',       href: users_path) }
-      it { should have_link('Profile',     href: user_path(user)) }
-      it { should have_link('Settings',    href: edit_user_path(user)) }
-      it { should have_link('Sign out',    href: signout_path) }
-      it { should_not have_link('Sign in', href: signin_path) }
+      it { should have_link(titleize(I18n.t(:users_index)), href: users_path) }
+      it { should have_link(titleize(I18n.t(:index)), href: authors_path) }
+      it { should have_link(titleize(I18n.t(:index)), href: books_path) }
+      it { should have_link(titleize(I18n.t(:profile)),     href: user_path(user)) }
+      it { should have_link(titleize(I18n.t(:settings)),    href: edit_user_path(user)) }
+      it { should have_link(titleize(I18n.t(:sign_out)),    href: signout_path) }
+      it { should_not have_link(titleize(I18n.t(:sign_in)), href: signin_path) }
+      it { should_not have_link(titleize(I18n.t(:home)), href: signin_path) }
 
       describe "followed by signout" do
-        before { click_link "Sign out" }
-        it { should have_link('Sign in') }
+        before { click_link titleize(I18n.t(:sign_out)) }
+        it { should have_link(titleize(I18n.t(:sign_in))) }
       end
     end
   end
@@ -56,46 +59,47 @@ describe "Authentication" do
         specify { expect(response).to redirect_to(root_url) }
       end
     end
-    
+
+  
     describe "for non-signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
 
-      describe "when attempting to visit a protected page" do
-        before do
-          visit edit_user_path(user)
-          fill_in "Email",    with: user.email
-          fill_in "Password", with: user.password
-          click_button "Sign in"
-        end
-
-        describe "after signing in" do
-          it "should render the desired protected page" do
-            expect(page).to have_title('Edit user')
-          end
-        end
-        
 =begin
-        describe "when signing in again" do
-                    before do
-                      delete signout_path
-                      visit signin_path
-                      fill_in "Email",    with: user.email
-                      fill_in "Password", with: user.password
-                      click_button "Sign in"
-                    end
-        
-                    it "should render the default (profile) page" do
-                      expect(page).to have_title(user.name)
-                    end
-                 end
+      describe "when attempting to visit a protected page" do
+              before do
+                visit edit_user_path(user)
+                fill_in titleize(I18n.t(:email)),    with: user.email
+                fill_in titleize(I18n.t(:password)), with: user.password
+                click_button titleize(I18n.t(:sign_in))
+              end
+      
+              describe "after signing in" do
+                it "should render the desired protected page" do
+                  expect(page).to have_title(full_title(titleize(I18n.t(:edit_user))))
+                end
+              end
+              
+              describe "when signing in again" do
+                before do
+                  delete signout_path
+                  visit signin_path
+                  fill_in "Email",    with: user.email
+                  fill_in "Password", with: user.password
+                 click_button "Sign in"
+                end          
+              
+                it "should render the default (profile) page" do
+                  expect(page).to have_title(user.name)
+                end
+              end           
+            end
 =end
-        
-      end
+      
 
       describe "in the Users controller" do
         describe "visiting the edit page" do
           before { visit edit_user_path(user) }
-          it { should have_title('Sign in') }
+          it { should have_title(titleize(I18n.t(:sign_in))) }
         end
 
         describe "submitting to the update action" do
@@ -105,7 +109,7 @@ describe "Authentication" do
         
         describe "visiting the user index" do
           before { visit users_path }
-          it { should have_title('Sign in') }
+          it { should have_title(titleize(I18n.t(:sign_in))) }
         end
       end
     end
@@ -117,7 +121,7 @@ describe "Authentication" do
 
       describe "visiting Users#edit page" do
         before { visit edit_user_path(wrong_user) }
-        it { should_not have_title(full_title('Edit user')) }
+        it { should_not have_title(full_title(titleize(I18n.t(:edit_user)))) }
       end
 
       describe "submitting a PATCH request to the Users#update action" do

@@ -1,9 +1,9 @@
 include ApplicationHelper
 
 def valid_signin(user)
-  fill_in "Email",    with: user.email
-  fill_in "Password", with: user.password
-  click_button "Sign in"
+  fill_in titleize(I18n.t(:email)),    with: user.email
+  fill_in titleize(I18n.t(:password)), with: user.password
+  click_button titleize(I18n.t(:sign_in))
 end
 
 RSpec::Matchers.define :have_error_message do |message|
@@ -20,8 +20,8 @@ def sign_in(user, options={})
     user.update_attribute(:remember_token, User.encrypt(remember_token))
   else
     visit signin_path
-    fill_in "Email",    with: user.email
-    fill_in "Password", with: user.password
-    click_button "Sign in"
+    fill_in titleize(I18n.t(:email)),    with: user.email
+    fill_in titleize(I18n.t(:password)), with: user.password
+    click_button titleize(I18n.t(:sign_in))
   end
 end

@@ -20,4 +20,61 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pl:
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+  
   main_app_title: "Biblioteka Stellertów"
+
+  books_index: "spis książek"
+  add_book: "dodaj nową książkę"
+  edit_book: "edytuj książkę"
+
+  authors_index: "spis autorów"
+  add_author: "dodaj autora"
+  edit_author: "edytuj autora"
+  
+  users_index: "spis użytkowników"
+  add_user: "dodaj użytkownika"
+  edit_user: "edytuj użytkownika"
+
+  help: "pomoc"
+  home: "strona główna"
+  
+  index: "indeks"
+  edit: "edytuj"
+  destroy: "usuń"
+  show: "pokaż"
+  back: "wstecz"
+  save: "zapisz"
+  cancel: "anuluj"
+  new_user: "nowy użytkownik?"
+  are_you_sure: "czy na pewno?"
+  
+  sign_in: "zaloguj"
+  sign_out: "wyloguj"
+  sign_up: "Zarejestruj się!"
+  
+  account: "moje konto"
+  profile: "mój profil"
+  edit_profile: "edytuj profil"
+  settings: "ustawienia"
+  create_account: "Utwórz konto"
+ 
+  name: "Imię"
+  surname: "Nazwisko"
+  isbn: "ISBN"
+  title: "Tytuł"
+  author: "Autor"
+  language: "Język"
+  description: "Opis"
+  photo: "Zdjęcie"
+  quantity: "Ilość"
+  place: "Miejsce położenia"
+  release_date: "Data wydania"
+  pages: "Ilość stron"
+  email: "E-mail"
+  password: "Hasło"
+  password_confirmation: "Potwierdź hasło"

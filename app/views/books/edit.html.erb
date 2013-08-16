@@ -1,6 +1,6 @@
-<h1>Editing book</h1>
+<h1><%= titleize(t(:edit_book))</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+<%= link_to titleize(t(:show)), @book %> |
+<%= link_to titleize(t(:back)), books_path %>
