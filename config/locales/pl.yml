@@ -28,10 +28,12 @@ pl:
   
   main_app_title: "Biblioteka Stellertów"
 
+  books: "książki"
   books_index: "spis książek"
   add_book: "dodaj nową książkę"
   edit_book: "edytuj książkę"
 
+  authors: "autorzy"
   authors_index: "spis autorów"
   add_author: "dodaj autora"
   edit_author: "edytuj autora"

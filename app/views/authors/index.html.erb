@@ -1,10 +1,11 @@
+<% provide(:page_title, titleize(t(:authors_index))) %>
 <h1><%= titleize(t(:authors_index))%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>t(name)</th>
-      <th>t(surname)</th>
+      <th><%= t(:name) %></th>
+      <th><%= t(:surname) %></th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,4 +27,6 @@
 
 <br>
 
-<%= link_to titleize(t(:add_author)), new_author_path %>
+<% if signed_in? && current_user.admin? %>
+    <%= link_to titleize(t(:add_author)), new_author_path %>
+<% end %>

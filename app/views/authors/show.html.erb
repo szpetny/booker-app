@@ -1,3 +1,4 @@
+<% provide(:page_title, t(@author.name, @author.surname)) %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -9,5 +10,7 @@
   <%= @author.surname %>
 </p>
 
-<%= link_to titleize(t(:edit)), edit_author_path(@author) %> |
+<% if current_user.admin? %>
+    <%= link_to titleize(t(:edit)), edit_author_path(@author) %> |
+<% end %>
 <%= link_to titleize(t(:back)), authors_path %>

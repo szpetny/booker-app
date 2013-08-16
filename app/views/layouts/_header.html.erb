@@ -4,27 +4,27 @@
       <%= link_to t(:books_index), root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <% if !signed_in? %>
+          <% unless signed_in? %>
           <li><%= link_to titleize(t(:home)), home_path %></li>
           <% end %>
           <li><%= link_to titleize(t(:help)), help_path %></li>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <%= titleize(t(:books_index)) %> <b class="caret"></b>
+                <%= titleize(t(:books)) %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to titleize(t(:index)), books_path %></li>
-                <li><%= link_to titleize(t(:add_book)), new_book_path %></li>
+                <li><%= link_to titleize(t(:books_index)), books_path %></li>
+                <li><% if current_user.admin? %><%= link_to titleize(t(:add_book)), new_book_path %><% end %></li>
               </ul>
             </li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <%= titleize(t(:authors_index)) %><b class="caret"></b>
+                <%= titleize(t(:authors)) %><b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to titleize(t(:index)), authors_path %></li>
-                <li><%= link_to titleize(t(:add_author)), new_author_path %></li>
+                <li><%= link_to titleize(t(:authors_index)), authors_path %></li>
+                <li><% if current_user.admin? %><%= link_to titleize(t(:add_author)), new_author_path %><% end %></li>
               </ul>
             </li>
             <li><%= link_to titleize(t(:users_index)), users_path %></li>

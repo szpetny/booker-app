@@ -1,3 +1,4 @@
+<% provide(:page_title, t(@book.title)) %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -50,5 +51,7 @@
   <%= @book.pages %>
 </p>
 
-<%= link_to titleize(t(:edit)), edit_book_path(@book) %> |
+<% if current_user.admin? %>
+    <%= link_to titleize(t(:edit)), edit_book_path(@book) %> |
+<% end %>
 <%= link_to titleize(t(:back)), books_path %>

@@ -1,3 +1,4 @@
+<% provide(:page_title, titleize(t(:books_index))) %>
 <h1><%= titleize(t(:books_index))%></h1>
 
 <table>
@@ -42,4 +43,6 @@
 
 <br>
 
-<%= link_to titleize(t(:add_book)), new_book_path %>
+<% if signed_in? && current_user.admin? %>
+    <%= link_to titleize(t(:add_book)), new_book_path %>
+<% end %>

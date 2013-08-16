@@ -32,8 +32,10 @@ describe "Authentication" do
 
       it { should have_title(user.name) }
       it { should have_link(titleize(I18n.t(:users_index)), href: users_path) }
-      it { should have_link(titleize(I18n.t(:index)), href: authors_path) }
-      it { should have_link(titleize(I18n.t(:index)), href: books_path) }
+      it { should have_link(titleize(I18n.t(:authors_index)), href: authors_path) }
+      it { should_not have_link(titleize(I18n.t(:add_author)), href: new_author_path) }
+      it { should have_link(titleize(I18n.t(:books_index)), href: books_path) }
+      it { should_not have_link(titleize(I18n.t(:add_book)), href: new_book_path) }
       it { should have_link(titleize(I18n.t(:profile)),     href: user_path(user)) }
       it { should have_link(titleize(I18n.t(:settings)),    href: edit_user_path(user)) }
       it { should have_link(titleize(I18n.t(:sign_out)),    href: signout_path) }
@@ -60,6 +62,19 @@ describe "Authentication" do
       end
     end
 
+    describe "as an admin can see add links in top menu" do
+      let(:admin) {FactoryGirl.create(:admin)}
+      
+      before do
+        visit root_path
+        sign_in admin
+      end
+      
+      it { should have_link(titleize(I18n.t(:authors_index)), href: authors_path) }
+      it { should have_link(titleize(I18n.t(:add_author)), href: new_author_path) }
+      it { should have_link(titleize(I18n.t(:books_index)), href: books_path) }
+      it { should have_link(titleize(I18n.t(:add_book)), href: new_book_path) }
+    end
   
     describe "for non-signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
