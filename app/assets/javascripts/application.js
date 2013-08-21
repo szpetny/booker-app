@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require dataTables/jquery.dataTables
+//= require dataTables/extras/TableTools
+//= require paging.js
+//= require books.js
 //= require_tree .
