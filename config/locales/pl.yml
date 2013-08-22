@@ -26,7 +26,7 @@ pl:
       short: "%b %d"
       long: "%B %d, %Y"
   
-  main_app_title: "Biblioteka Stellertów"
+  main_app_title: "Biblioteka"
 
   books: "książki"
   books_index: "spis książek"
