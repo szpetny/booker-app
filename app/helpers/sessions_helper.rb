@@ -28,12 +28,15 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
   
-  def redirect_back_or(default)
-    redirect_to(session[:return_to] || default)
-    session.delete(:return_to)
+  def redirect_back_or_default
+    url = session[:return_to] || root_path
+    session[:return_to] = nil
+    url = root_path if url.eql?('/signout')
+    logger.debug "URL to redirect to: #{url}"
+    redirect_to(url)
   end
 
   def store_location
-    session[:return_to] = request.url
+    session[:return_to] = request.fullpath
   end
 end
