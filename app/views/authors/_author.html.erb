@@ -1,0 +1,8 @@
+<li>
+  <%= link_to author.name_and_surname, author %>
+  <% if signed_in? && current_user.admin? %>
+    | <%= link_to titleize(t(:edit)), edit_author_path(author) %>
+    | <%= link_to titleize(t(:destroy)), author, method: :delete,
+                                  data: { confirm: titleize(t(:are_you_sure)) } %>
+  <% end %>
+</li>

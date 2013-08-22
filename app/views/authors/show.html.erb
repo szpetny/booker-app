@@ -1,8 +1,8 @@
-<% provide(:page_title, t(@author.name, @author.surname)) %>
+<% provide(:page_title, t(:author) + " #{@author.name} #{@author.surname}") %>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong<%= titleize(t(:name)) %>:</strong>
+  <strong><%= titleize(t(:name)) %>:</strong>
   <%= @author.name %>
 </p>
 <p>

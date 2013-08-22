@@ -18,12 +18,12 @@ FactoryGirl.define do
   
   factory :book do
     isbn "83-07-0234204"
-    title "Mistrz i Małgorzata"
+    title "Mistrz i Malgorzata"
     author
     language "polski"
-    description "Mistrz i Małgorzata"
+    description "Mistrz i Malgorzata"
     quantity 1
-    place "półka u Gosi"
+    place "polka u Gosi"
     pages 476
   end
 end

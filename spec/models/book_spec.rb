@@ -5,12 +5,12 @@ describe Book do
   let(:author) { FactoryGirl.create(:author) }
   before do
     @book = author.books.build(isbn: "83-07-0234204",
-                     title: "Mistrz i Małgorzata",
+                     title: "Mistrz i Malgorzata",
                      author_id: author.id,
                      language: "polski",
-                     description: "Mistrz i Małgorzata",
+                     description: "Mistrz i Malgorzata",
                      quantity: 1,
-                     place: "półka u Gosi",
+                     place: "polka u Gosi",
                      pages: 476)
   end
 

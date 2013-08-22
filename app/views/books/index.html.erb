@@ -16,8 +16,10 @@
       <th><%= titleize(t(:release_date))%></th>
       <th><%= titleize(t(:pages))%></th>
       <th></th>
-      <th></th>
-      <th></th>
+      <% if signed_in? && current_user.admin? %>
+          <th></th>
+          <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -35,8 +37,10 @@
         <td><%= book.release_date %></td>
         <td><%= book.pages %></td>
         <td><%= link_to titleize(t(:show)), book %></td>
-        <td><%= link_to titleize(t(:edit)), edit_book_path(book) %></td>
-        <td><%= link_to titleize(t(:destroy)), book, method: :delete, data: { confirm: titleize(t(:are_you_sure)) } %></td>
+        <% if signed_in? && current_user.admin? %>
+            <td><%= link_to titleize(t(:edit)), edit_book_path(book) %></td>
+            <td><%= link_to titleize(t(:destroy)), book, method: :delete, data: { confirm: titleize(t(:are_you_sure)) } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

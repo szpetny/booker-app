@@ -4,6 +4,6 @@ class Book < ActiveRecord::Base
   validates :isbn, presence: true, format: /[\-0-9]+/
   validates :title, presence: true
   validates :quantity, numericality: true
-  validates :pages, numericality: true
+  validates :pages, numericality: true, presence: false
   validates :place, presence: true
 end

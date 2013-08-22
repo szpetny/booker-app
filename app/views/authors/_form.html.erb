@@ -1,26 +1,28 @@
 <%= form_for(@author) do |f| %>
-  <% if @author.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+<% if @author.errors.any? %>
+<div id="error_explanation">
+	<div class="alert alert-error">
+		The form contains <%= pluralize(@author.errors.count, "error") %>.
+	</div>
+	<ul>
+		<% @author.errors.full_messages.each do |msg| %>
+		<li>
+			* <%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 
-      <ul>
-      <% @author.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+	<div class="span6 offset3">
+		<%= f.label :name, titleize(t(:name)) %>
+		<%= f.text_field :name %>
 
-  <div class="field">
-    <%= f.label :name, titleize(t(:name)) %><br>
-    <%= f.text_field :name %>
-  </div>
-  <br />
-  <div class="field">
-    <%= f.label :surname, titleize(t(:surname)) %><br>
-    <%= f.text_field :surname %>
-  </div>
-  <div class="actions">
-    <%= f.submit titleize(t(:save)) %>
-  </div>
+		<%= f.label :surname, titleize(t(:surname)) %>
+		<%= f.text_field :surname %>
+
+		<%= f.submit titleize(t(:save)), class: "btn btn-large btn-primary"  %>
+	</div>
+</div>
 <% end %>
