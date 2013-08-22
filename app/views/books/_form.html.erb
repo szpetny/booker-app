@@ -11,47 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :isbn, titleize(t(:isbn)) %><br>
-    <%= f.text_field :isbn %>
+<div class="row">
+  <div class="span6 offset3">
+        <%= f.label :isbn, titleize(t(:isbn)) %>
+        <%= f.text_field :isbn %>
+
+        <%= f.label :title, titleize(t(:title)) %>
+        <%= f.text_field :title %>
+
+        <%= f.label :author, titleize(t(:author)) %>
+        <%= f.number_field :author_id %>
+
+        <%= f.label :language, titleize(t(:language)) %>
+        <%= f.text_field :language %>
+
+        <%= f.label :description, titleize(t(:description)) %>
+        <%= f.text_field :description %>
+
+        <%= f.label :photo, titleize(t(:photo)) %>
+        <%= f.text_field :photo %>
+
+        <%= f.label :quantity, titleize(t(:quantity)) %>
+        <%= f.number_field :quantity %>
+
+        <%= f.label :place, titleize(t(:place)) %>
+        <%= f.text_field :place %>
+
+        <%= f.label :release_date, titleize(t(:release_date)) %>
+        <%= f.text_field :release_date, class: "datepicker" %>
+
+        <%= f.label :pages, titleize(t(:pages)) %>
+        <%= f.number_field :pages %>
+
+        <%= f.submit titleize(t(:save)), class: "btn btn-large btn-primary" %>
   </div>
-  <div class="field">
-    <%= f.label :title, titleize(t(:title)) %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :author, titleize(t(:author)) %><br>
-    <%= f.number_field :author_id %>
-  </div>
-  <div class="field">
-    <%= f.label :language, titleize(t(:language)) %><br>
-    <%= f.text_field :language %>
-  </div>
-  <div class="field">
-    <%= f.label :description, titleize(t(:description)) %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :photo, titleize(t(:photo)) %><br>
-    <%= f.text_field :photo %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity, titleize(t(:quantity)) %><br>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :place, titleize(t(:place)) %><br>
-    <%= f.text_field :place %>
-  </div>
-  <div class="field">
-    <%= f.label :release_date, titleize(t(:release_date)) %><br>
-    <%= f.date_select :release_date, {:include_blank => true, :default => nil} %>
-  </div>
-  <div class="field">
-    <%= f.label :pages, titleize(t(:pages)) %><br>
-    <%= f.number_field :pages %>
-  </div>
-  <div class="actions">
-    <%= f.submit titleize(t(:save))%>
-  </div>
+</div>      
 <% end %>

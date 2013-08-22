@@ -20,11 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pl:
-  date:
-    formats:
-      default: "%Y-%m-%d"
-      short: "%b %d"
-      long: "%B %d, %Y"
+  day: "Dzień"
+  month: "Miesiąc"
+  year: "Rok"
   
   main_app_title: "Biblioteka"
 

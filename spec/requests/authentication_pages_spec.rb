@@ -30,7 +30,7 @@ describe "Authentication" do
       let(:user) { FactoryGirl.create(:user) }
       before { valid_signin(user) }
 
-      it { should have_title(user.name) }
+      it { should have_title(titleize(I18n.t(:books_index))) }
       it { should have_link(titleize(I18n.t(:users_index)), href: users_path) }
       it { should have_link(titleize(I18n.t(:authors_index)), href: authors_path) }
       it { should_not have_link(titleize(I18n.t(:add_author)), href: new_author_path) }

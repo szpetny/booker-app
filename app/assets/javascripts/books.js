@@ -4,5 +4,6 @@ $(function() {
         "sPaginationType": "bootstrap",
         "oLanguage": {"sUrl": "dataTables/polish.txt"}
   });
+  
 });
     
