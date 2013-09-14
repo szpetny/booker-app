@@ -31,9 +31,6 @@
 		<%= f.label :description, titleize(t(:description)) %>
 		<%= f.text_field :description %>
 
-		<%= f.label :photo, titleize(t(:photo)) %>
-		<%= f.text_field :photo %>
-
 		<%= f.label :quantity, titleize(t(:quantity)) %>
 		<%= f.number_field :quantity %>
 
@@ -41,11 +38,14 @@
 		<%= f.text_field :place %>
 
 		<%= f.label :release_date, titleize(t(:release_date)) %>
-		<%= f.text_field :release_date, class: "datepicker" %>
+		<%= f.text_field :release_date, :id =>"release_date" %>
 
 		<%= f.label :pages, titleize(t(:pages)) %>
 		<%= f.number_field :pages %>
 
+        <%= f.label :photo, titleize(t(:photo)) %>
+        <%= f.file_field :photo %>
+        <br />
 		<%= f.submit titleize(t(:save)), class: "btn btn-large btn-primary" %>
 	</div>
 </div>

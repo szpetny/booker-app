@@ -30,7 +30,7 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+        format.html { redirect_to @author, notice: I18n.t(:author_created_successfully) }
         format.json { render action: 'show', status: :created, location: @author }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to @author, notice: 'Author was successfully updated.' }
+        format.html { redirect_to @author, notice: I18n.t(:changes_updated_successfully) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

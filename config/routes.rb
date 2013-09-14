@@ -1,5 +1,6 @@
 BookerApp::Application.routes.draw do
-  root  'books#index'
+  #root  'books#index'
+  root :to => redirect('/books')
   
   match '/help',    to: 'static_pages#help',    via: 'get'
   

@@ -18,7 +18,6 @@
 //= require dataTables/extras/TableTools
 //= require paging.js
 //= require bootstrap-datepicker.PL.js
-//= require bootstrap-datepicker.PL.js
 //= require books.js
 //= require common.js
 //= require_tree .

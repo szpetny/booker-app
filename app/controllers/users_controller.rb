@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = I18n.t(:welcome)
       redirect_to @user
     else
       render 'new'
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = I18n.t(:profile_updated)
       sign_in @user
       redirect_to @user
     else
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
+    flash[:success] = I18n.t(:user_destroyed)
     redirect_to users_url
   end
 

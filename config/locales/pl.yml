@@ -24,12 +24,17 @@ pl:
   month: "Miesiąc"
   year: "Rok"
   
+  welcome: "Witaj w wirtualnej bibliotece!"
   main_app_title: "Biblioteka"
-
+  
   books: "książki"
   books_index: "spis książek"
   add_book: "dodaj nową książkę"
   edit_book: "edytuj książkę"
+  
+  author_created_successfully: "Autor został dodany do bazy danych"
+  book_created_successfully: "Książka została dodana do bazy danych"
+  changes_updated_successfully: "Zmiany zostały zapisane pomyślnie"  
 
   authors: "autorzy"
   authors_index: "spis autorów"
@@ -39,6 +44,8 @@ pl:
   users_index: "spis użytkowników"
   add_user: "dodaj użytkownika"
   edit_user: "edytuj użytkownika"
+  profile_updated: "Profil został zmieniony"
+  user_destroyed: "Użytkownik został usunięty"
 
   help: "pomoc"
   home: "strona główna"

@@ -1,5 +1,4 @@
 <% provide(:page_title, t(@book.title)) %>
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong><%= titleize(t(:isbn)) %>:</strong>
@@ -28,7 +27,7 @@
 
 <p>
   <strong><%= titleize(t(:photo)) %>:</strong>
-  <%= @book.photo %>
+  <%= image_tag(@book.photo, :width => 600) if @book.photo.present? %>
 </p>
 
 <p>
