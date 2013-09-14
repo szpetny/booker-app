@@ -100,7 +100,7 @@ describe "User pages" do
 
         it { should have_link(titleize(I18n.t(:sign_out))) }
         it { should have_title(user.name) }
-        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        it { should have_selector('div.alert.alert-success', text: I18n.t(:welcome)) }
       end
     end
   end

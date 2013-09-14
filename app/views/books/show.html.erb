@@ -1,4 +1,4 @@
-<% provide(:page_title, t(@book.title)) %>
+<% provide(:page_title, @book.title) %>
 
 <p>
   <strong><%= titleize(t(:isbn)) %>:</strong>
@@ -12,7 +12,7 @@
 
 <p>
   <strong><%= titleize(t(:author)) %>:</strong>
-  <%= @book.author_id %>
+  <%= @book.author.name_and_surname %>
 </p>
 
 <p>
@@ -23,11 +23,6 @@
 <p>
   <strong><%= titleize(t(:description)) %>:</strong>
   <%= @book.description %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:photo)) %>:</strong>
-  <%= image_tag(@book.photo, :width => 600) if @book.photo.present? %>
 </p>
 
 <p>
@@ -48,6 +43,11 @@
 <p>
   <strong><%= titleize(t(:pages)) %>:</strong>
   <%= @book.pages %>
+</p>
+
+<p>
+  <strong><%= titleize(t(:photo)) %>:</strong>
+  <%= image_tag(@book.photo, :width => 600) if @book.photo.present? %>
 </p>
 
 <% if current_user.admin? %>
