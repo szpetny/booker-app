@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 == README
 
 This README would normally document whatever steps are necessary to get the
@@ -26,3 +27,8 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+=======
+The OpenShift `ruby` cartridge documentation can be found at:
+
+https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-ruby/README.md
+>>>>>>> 97245cce1d74cea3d77d761623d94324a0973b24
