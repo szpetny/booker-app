@@ -12,18 +12,18 @@ FactoryGirl.define do
   end
   
   factory :author do
-    sequence(:name)  { |n| "Szmendalson #{n}" }
-    sequence(:surname)  { |n| "Kretynson #{n}" }
+    name  "Chlepton"
+    surname "Grubson"
   end
   
   factory :book do
     isbn "83-07-0234204"
     title "Mistrz i Malgorzata"
-    author
+    author 
     language "polski"
     description "Mistrz i Malgorzata"
     quantity 1
-    place "polka u Gosi"
+    place "kredens u Gosi"
     pages 476
   end
 end

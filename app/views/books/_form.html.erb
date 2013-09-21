@@ -23,7 +23,7 @@
 		<%= f.text_field :title %>
 
 		<%= f.label :author, titleize(t(:author)) %>
-		<%= f.collection_select :author_id, Author.order(:surname), :id, :name_and_surname, include_blank: true %>
+		<%= f.collection_select(:author_id, Author.all, :id, :name_and_surname, {:include_blank => true}) %>
 
 		<%= f.label :language, titleize(t(:language)) %>
 		<%= f.text_field :language %>

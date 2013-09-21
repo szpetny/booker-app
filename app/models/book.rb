@@ -8,4 +8,5 @@ class Book < ActiveRecord::Base
   validates :place, presence: true
   
   mount_uploader :photo, PictureUploader
+  
 end

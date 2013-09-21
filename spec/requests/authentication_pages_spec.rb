@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pp'
 
 describe "Authentication" do
 
@@ -64,6 +65,7 @@ describe "Authentication" do
 
     describe "as an admin can see add links in top menu" do
       let(:admin) {FactoryGirl.create(:admin)}
+      let(:book) {FactoryGirl.create(:book)}
       
       before do
         visit root_path
