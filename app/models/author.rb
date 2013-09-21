@@ -5,6 +5,6 @@ class Author < ActiveRecord::Base
     validates :surname, presence: true, length: {maximum: 50}
     
     def name_and_surname
-      "#{name} #{surname}"
+      "#{@name} #{@surname}"
     end
 end
