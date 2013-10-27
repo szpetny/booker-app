@@ -4,9 +4,6 @@
       <%= link_to t(:books_index), root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <% unless signed_in? %>
-          <li><%= link_to titleize(t(:home)), home_path %></li>
-          <% end %>
           <li><%= link_to titleize(t(:help)), help_path %></li>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">

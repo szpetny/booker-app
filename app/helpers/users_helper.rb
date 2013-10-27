@@ -2,7 +2,7 @@ module UsersHelper
   # Before filters
     def signed_in_user
       store_location
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+      redirect_to signin_url, notice: I18n.t(:please_sign_in) unless signed_in?
     end
 
     def admin_user

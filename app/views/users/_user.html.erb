@@ -1,6 +1,6 @@
 <li>
   <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
+  <% if current_user.admin? %>
     | <%= link_to titleize(t(:edit)), edit_user_path(user) %>
     | <%= link_to titleize(t(:destroy)), user, method: :delete,
                                   data: { confirm: titleize(t(:are_you_sure)) } %>

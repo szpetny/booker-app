@@ -8,3 +8,7 @@
 </ul>
 
 <%= will_paginate %>
+
+<% if signed_in? && current_user.admin? %>
+    <%= link_to titleize(t(:add_author)), new_author_path %>
+<% end %>

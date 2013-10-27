@@ -8,15 +8,6 @@ describe "StaticPages" do
     it { should have_title(full_title(page_title)) }
   end
   
-  describe "Home page" do
-    before { visit home_path }
-    
-    let(:heading)    { full_title(titleize(I18n.t(:home))) }
-    let(:page_title) { titleize(I18n.t(:home)) }
-
-    it_should_behave_like "all static pages"
-  end
-
   describe "Help page" do
     before { visit help_path }
     
@@ -30,8 +21,6 @@ describe "StaticPages" do
     visit root_path
     click_link titleize(I18n.t(:help))
     expect(page).to have_title(full_title(titleize(I18n.t(:help))))
-    click_link titleize(I18n.t(:home))
-    expect(page).to have_title(full_title(titleize(I18n.t(:home))))
     click_link titleize(I18n.t(:sign_in))
     expect(page).to have_title(full_title(titleize(I18n.t(:sign_in))))
     click_link I18n.t(:books_index)

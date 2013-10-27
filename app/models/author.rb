@@ -7,4 +7,8 @@ class Author < ActiveRecord::Base
     def name_and_surname
       "#{name} #{surname}"
     end
+    
+    def surname_and_name
+      "#{surname} #{name}"
+    end
 end

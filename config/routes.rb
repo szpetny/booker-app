@@ -4,8 +4,6 @@ BookerApp::Application.routes.draw do
   
   match '/help',    to: 'static_pages#help',    via: 'get'
   
-  match '/home',    to: 'static_pages#home',    via: 'get'
-  
   match '/signup',  to: 'users#new',            via: 'get'
   
   match '/signin',  to: 'sessions#new',         via: 'get'

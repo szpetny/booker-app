@@ -48,7 +48,6 @@ pl:
   user_destroyed: "Użytkownik został usunięty"
 
   help: "pomoc"
-  home: "strona główna"
   
   index: "indeks"
   edit: "edytuj"
@@ -59,10 +58,11 @@ pl:
   cancel: "anuluj"
   new_user: "nowy użytkownik?"
   are_you_sure: "czy na pewno?"
-  
+  please_sign_in: "Proszę się zalogować!"  
   sign_in: "zaloguj"
   sign_out: "wyloguj"
   sign_up: "Zarejestruj się!"
+  invalid_email_pass_combination: "Niewłaściwa kombinacja e-maila i hasła"
   
   account: "moje konto"
   profile: "mój profil"

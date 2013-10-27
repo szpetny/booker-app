@@ -22,7 +22,7 @@ describe "Authentication" do
       it { should have_error_message('Invalid') }
 
       describe "after visiting another page" do
-        before { click_link titleize(I18n.t(:home)) }
+        before { click_link titleize(I18n.t(:help)) }
         it { should_not have_selector('div.alert.alert-error') }
       end
     end
@@ -41,7 +41,6 @@ describe "Authentication" do
       it { should have_link(titleize(I18n.t(:settings)),    href: edit_user_path(user)) }
       it { should have_link(titleize(I18n.t(:sign_out)),    href: signout_path) }
       it { should_not have_link(titleize(I18n.t(:sign_in)), href: signin_path) }
-      it { should_not have_link(titleize(I18n.t(:home)), href: signin_path) }
 
       describe "followed by signout" do
         before { click_link titleize(I18n.t(:sign_out)) }

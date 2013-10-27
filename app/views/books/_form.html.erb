@@ -16,14 +16,16 @@
 
 <div class="row">
 	<div class="span6 offset3">
-		<%= f.label :isbn, titleize(t(:isbn)) %>
-		<%= f.text_field :isbn %>
-
 		<%= f.label :title, titleize(t(:title)) %>
 		<%= f.text_field :title %>
 
 		<%= f.label :author, titleize(t(:author)) %>
-		<%= f.collection_select(:author_id, Author.all, :id, :name_and_surname, {:include_blank => true}) %>
+		<%= f.collection_select(:author_id, Author.all.order(:surname), :id, :surname_and_name, {:include_blank => true}) %>
+		
+		<%= link_to titleize(t(:add_author)), new_author_path %>
+		
+		<%= f.label :isbn, titleize(t(:isbn)) %>
+        <%= f.text_field :isbn %>
 
 		<%= f.label :language, titleize(t(:language)) %>
 		<%= f.text_field :language %>
