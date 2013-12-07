@@ -31,7 +31,7 @@ class AuthorsController < ApplicationController
     respond_to do |format|
       if @author.save
         format.html { redirect_to @author, notice: I18n.t(:author_created_successfully) }
-        format.json { render action: 'show', status: :created, location: @author }
+        format.json { render json: Author.all.order(:surname) }
       else
         format.html { render action: 'new' }
         format.json { render json: @author.errors, status: :unprocessable_entity }

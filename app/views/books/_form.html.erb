@@ -22,19 +22,14 @@
         <%= f.label :author, titleize(t(:author)) %>
         
        
-       <div class="input-append">
-        <%= f.collection_select(:author_id, Author.all.order(:surname), :id, :surname_and_name, 
-            {:include_blank => true}, {style: "width:115%"} ) %>
-        <%= link_to titleize(t(:add_author)), new_author_path, class: "btn btn-large btn-primary", style: "padding:9px"%>
+       <div class="input-append" id="book_author_select_div">
+            <%= f.collection_select(:author_id, Author.all.order(:surname), :id, :surname_and_name,
+                {:include_blank => true}, {style: "width:115%"} ) %>
+            <button class="btn btn-large btn-primary" style="padding:9px" data-toggle="modal" data-target="#addAuthorModal">
+                <%= titleize(t(:add_author))%>
+            </button>
         </div>
-       
-	<!--
-		
-			<%= f.collection_select(:author_id, Author.all.order(:surname), :id, :surname_and_name, {:include_blank => true}) %>
-			
-			-->
-	
-		
+
 		<%= f.label :isbn, titleize(t(:isbn)) %>
         <%= f.text_field :isbn %>
 
@@ -63,3 +58,26 @@
 	</div>
 </div>
 <% end %>
+
+<!-- Modal -->
+<div class="modal hide fade" id="addAuthorModal" tabindex="-1" role="dialog"
+    aria-labelledby="add_author_dialog_lbl" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="add_author_dialog_lbl"><%=titleize(t(:add_author))%></h4>
+      </div>
+      <div class="modal-body">
+        <label for="author_name"><%=titleize(t(:name))%></label>
+        <input id="author_name" name="author[name]" type="text">
+        <label for="author_surname"><%=titleize(t(:surname))%></label>
+        <input id="author_surname" name="author[surname]" type="text">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="save_new_author"><%=titleize(t(:save))%></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%=titleize(t(:close))%></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
