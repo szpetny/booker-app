@@ -38,7 +38,7 @@ class AuthorsController < ApplicationController
       end
     end
   end
- 
+
   # PATCH/PUT /authors/1
   # PATCH/PUT /authors/1.json
   def update
