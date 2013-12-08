@@ -1,5 +1,5 @@
 #!/bin/bash
 echo ">>>>>>>>>>> BUILD HOOK START - creating symlink for book photo"
-mkdir -p $OPENSHIFT_DATA_DIR/uploads
-ln -sf $OPENSHIFT_DATA_DIR/uploads $OPENSHIFT_REPO_DIR/public
+mkdir -p $OPENSHIFT_DATA_DIRuploads
+ln -sf $OPENSHIFT_DATA_DIRuploads $OPENSHIFT_REPO_DIRpublic/uploads
 echo ">>>>>>>>>>> BUILD HOOK END - creating symlink for book photo"
