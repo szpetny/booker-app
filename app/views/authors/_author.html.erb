@@ -1,5 +1,5 @@
 <li>
-  <%= link_to author.name_and_surname, author %>
+  <%= link_to author.surname_and_name, author %>
   <% if signed_in? && current_user.admin? %>
     | <%= link_to titleize(t(:edit)), edit_author_path(author) %>
     | <%= link_to titleize(t(:destroy)), author, method: :delete,

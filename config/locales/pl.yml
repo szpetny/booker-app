@@ -86,3 +86,6 @@ pl:
   email: "E-mail"
   password: "Hasło"
   password_confirmation: "Potwierdź hasło"
+  
+  author_search: "Podaj imię lub nazwisko"
+  search: "szukaj"

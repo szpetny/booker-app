@@ -19,7 +19,6 @@ $(function() {
   		});
   	
   		request.done(function(data) {
-  			//var select = 
   			$('#book_author_id').html('');
   			$.each(data, function(k,v) {
   				$('#book_author_id').append(

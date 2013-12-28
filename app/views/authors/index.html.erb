@@ -1,7 +1,19 @@
 <% provide(:page_title, titleize(t(:authors_index))) %>
 <h1><%= titleize(t(:authors_index))%></h1>
 
-<%= will_paginate %>
+<div class="row">
+  <div class="col-md-6">
+     <%= will_paginate %>
+  </div>
+  <div class="col-md-6">
+      <div class="search-on-top input-append">
+            <input id="author_search" name=":author_search" type="text" placeholder="<%=t(:author_search)%>">
+            <button type="button" class="btn btn-primary" id="search_for_author">
+                <%=titleize(t(:search))%>
+            </button>
+      </div>
+  </div>
+</div>
 
 <ul class="people">
   <%= render @authors %>

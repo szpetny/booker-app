@@ -6,7 +6,11 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.paginate(page: params[:page])
+    if params[:search_param] != nil
+      @authors = Author.where(:name => params[:search_param]).or(:surname => params[:search_param]).order(:surname).paginate(page: params[:page], per_page: 10)
+    else
+      @authors = Author.all.order(:surname).paginate(page: params[:page], per_page: 10)
+    end
   end
 
   # GET /authors/1
