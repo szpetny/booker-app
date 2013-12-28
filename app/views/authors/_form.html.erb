@@ -1,7 +1,7 @@
-<%= form_for(@author) do |f| %>
+<%= form_for(@author, :html => { :class => "form-horizontal"}) do |f| %>
 <% if @author.errors.any? %>
 <div id="error_explanation">
-	<div class="alert alert-error">
+	<div class="alert alert-danger">
 		The form contains <%= pluralize(@author.errors.count, "error") %>.
 	</div>
 	<ul>
@@ -14,15 +14,26 @@
 </div>
 <% end %>
 
-<div class="row">
 	<div class="span6 offset3">
-		<%= f.label :name, titleize(t(:name)) %>
-		<%= f.text_field :name %>
+	    <div class="form-group">
+           <%= f.label :name, titleize(t(:name)), :class => 'col-sm-2 control-label' %>
+           <div class="col-sm-10">
+                <%= f.text_field :name, :class => 'form-control' %> 
+           </div>
+        </div>
+        
+        <div class="form-group">
+           <%= f.label :surname, titleize(t(:surname)), :class => 'col-sm-2 control-label' %>
+           <div class="col-sm-10">
+                <%= f.text_field :surname, :class => 'form-control' %> 
+           </div>
+        </div>
+        <br />
+        <div class="form-group">
+             <div class="col-sm-offset-2 col-sm-10">
+                <%= f.submit titleize(t(:save)), class: "btn btn-primary"  %>
+             </div>
+        </div>
 
-		<%= f.label :surname, titleize(t(:surname)) %>
-		<%= f.text_field :surname %>
-
-		<%= f.submit titleize(t(:save)), class: "btn btn-large btn-primary"  %>
 	</div>
-</div>
 <% end %>

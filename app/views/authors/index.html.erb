@@ -1,17 +1,26 @@
 <% provide(:page_title, titleize(t(:authors_index))) %>
-<h1><%= titleize(t(:authors_index))%></h1>
+<div class="page-header">
+    <h1><%= titleize(t(:authors_index))%></h1>
+</div>
+<div class="well">
 
 <div class="row">
   <div class="col-md-6">
-     <%= will_paginate %>
+      <div class="form-group">
+         <div class="col-sm-12" style="margin-left: 20px">
+             <%= will_paginate %>
+         </div>
+      </div>
   </div>
   <div class="col-md-6">
-      <div class="search-on-top input-append">
-            <input id="author_search" name=":author_search" type="text" placeholder="<%=t(:author_search)%>">
-            <button type="button" class="btn btn-primary" id="search_for_author">
+     <div class="input-group" style="margin: 40px 0">
+        <input id="author_search" name=":author_search" type="text" class="form-control" placeholder="<%=t(:author_search)%>">
+        <span class="input-group-btn">
+           <button type="button" class="btn btn-primary" id="search_for_author">
                 <%=titleize(t(:search))%>
             </button>
-      </div>
+        </span>
+      </div>                       
   </div>
 </div>
 
@@ -19,9 +28,17 @@
   <%= render @authors %>
 </ul>
 
-<%= will_paginate %>
+<div class="row">
+  <div class="col-md-6">
+      <div class="form-group">
+         <div class="col-sm-12" style="margin-left: 20px">
+             <%= will_paginate %>
+         </div>
+      </div>
+  </div>
+</div>
 
-<br><br><br>
 <% if signed_in? && current_user.admin? %>
     <%= link_to titleize(t(:add_author)), new_author_path %>
 <% end %>
+</div>

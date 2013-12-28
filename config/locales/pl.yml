@@ -87,5 +87,10 @@ pl:
   password: "Hasło"
   password_confirmation: "Potwierdź hasło"
   
+  author_books: "książki autora"
   author_search: "Podaj imię lub nazwisko"
   search: "szukaj"
+  
+  will_paginate:
+    previous_label: "Poprzednia"
+    next_label: "Następna"

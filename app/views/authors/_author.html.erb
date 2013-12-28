@@ -1,8 +1,9 @@
-<li>
-  <%= link_to author.surname_and_name, author %>
+<li class="row">
+    <div class="col-md-3"><%= author.surname_and_name %></div>
+    <div class="col-md-3">| <%= link_to titleize(t(:author_books)) %></div>
   <% if signed_in? && current_user.admin? %>
-    | <%= link_to titleize(t(:edit)), edit_author_path(author) %>
-    | <%= link_to titleize(t(:destroy)), author, method: :delete,
-                                  data: { confirm: titleize(t(:are_you_sure)) } %>
+    <div class="col-md-3">| <%= link_to titleize(t(:edit)), edit_author_path(author) %></div>
+    <div class="col-md-3">| <%= link_to titleize(t(:destroy)), author, method: :delete,
+                                  data: { confirm: titleize(t(:are_you_sure)) } %></div>
   <% end %>
 </li>

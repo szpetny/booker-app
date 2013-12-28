@@ -23,7 +23,7 @@ describe "Authentication" do
 
       describe "after visiting another page" do
         before { click_link titleize(I18n.t(:help)) }
-        it { should_not have_selector('div.alert.alert-error') }
+        it { should_not have_selector('div.alert.alert-danger') }
       end
     end
 

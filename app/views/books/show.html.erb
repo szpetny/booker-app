@@ -1,56 +1,90 @@
 <% provide(:page_title, @book.title) %>
+<div class="well">
+<div class="page-header">
+    <h1><%= @book.title %></h1>
+</div>
 
-<p>
-  <strong><%= titleize(t(:isbn)) %>:</strong>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:title)) %>:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:author)) %>:</strong>
-  <%= @book.author.name_and_surname %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:language)) %>:</strong>
-  <%= @book.language %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:description)) %>:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:quantity)) %>:</strong>
-  <%= @book.quantity %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:place)) %>:</strong>
-  <%= @book.place %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:release_date)) %>:</strong>
-  <%= @book.release_date %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:pages)) %>:</strong>
-  <%= @book.pages %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:photo)) %>:</strong>
-  <%= image_tag(@book.photo, :width => 600) if @book.photo.present? %>
-</p>
-
+<div class="row">
+    <div class="col-sm-6">
+        <p><strong><%= titleize(t(:author)) %>:</strong></p>
+    </div>
+    <div class="col-sm-6">
+        <p><%= @book.author.name_and_surname %></p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <p><strong><%= titleize(t(:isbn)) %>:</strong></p>
+    </div>
+    <div class="col-sm-6">
+        <p><%= @book.isbn %></p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <p><strong><%= titleize(t(:language)) %>:</strong></p>
+    </div>
+    <div class="col-sm-6">
+        <p><%= @book.language %></p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <p><strong><%= titleize(t(:description)) %>:</strong></p>
+    </div>
+    <div class="col-sm-6">
+        <p><%= @book.description %></p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <p><strong><%= titleize(t(:quantity)) %>:</strong></p>
+    </div>
+    <div class="col-sm-6">
+        <p><%= @book.quantity %></p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <p><strong><%= titleize(t(:place)) %>:</strong></p>
+    </div>
+    <div class="col-sm-6">
+        <p><%= @book.place %></p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <p><strong><%= titleize(t(:release_date)) %>:</strong></p>
+    </div>
+    <div class="col-sm-6">
+        <p><%= @book.release_date %></p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <p><strong><%= titleize(t(:pages)) %>:</strong></p>
+    </div>
+    <div class="col-sm-6">
+        <p><%= @book.pages %></p>
+    </div>
+</div>
+<br><br>
+<div class="panel panel-default">
+  <div class="panel-heading"><strong><%= titleize(t(:photo)) %>:</strong></div>
+  <div class="panel-body">
+     <%= image_tag(@book.photo, :width => 600) if @book.photo.present? %>
+  </div>
+</div>
+<br>
 <% if current_user.admin? %>
     <%= link_to titleize(t(:edit)), edit_book_path(@book) %> |
 <% end %>
 <%= link_to titleize(t(:back)), books_path %>
+</div>

@@ -1,9 +1,11 @@
 <% provide(:page_title, @user.name) %>
-<h1><%= @user.name %> <%= @user.surname %></h1>
-
+<div class="well">
+<div class="page-header">
+    <h2><%= titleize(t(:profile))%></h2>
+</div>
 <div class="row">
   <aside class="span4">
-    <section>
+    <section style="margin: 0 10px">
       <h1>
         <%= @user.name %>
       </h1>
@@ -30,3 +32,4 @@
 
 <%= link_to link_to titleize(t(:edit)), edit_user_path(@user) %> |
 <%= link_to link_to titleize(t(:back)), users_path %>
+</div>
