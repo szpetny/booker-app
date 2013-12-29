@@ -2,7 +2,14 @@ $(function() {
   $('#books').dataTable({
         "sDom": "<'row'<'span'l><'span'f>r>t<'row'<'span'i><'span'p>>",
         "sPaginationType": "bootstrap",
-        "oLanguage": {"sUrl": "dataTables/polish.txt"}
+        "oLanguage": {"sUrl": "dataTables/polish.txt"},
+        "aoColumnDefs": [
+			      {"sWidth": "25%", "aTargets": [0]},
+			      {"sWidth": "20%", "aTargets": [1,2]},
+			      {"sWidth": "5%", "aTargets": [3,4]},
+			      {"sWidth": "10%", "aTargets": [5]},
+			      {"sWidth": "5%", "aTargets": [6]},
+			    ]
   });
   
   $("#save_new_author").bind('click', function() {
