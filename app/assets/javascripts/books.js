@@ -13,6 +13,9 @@ $(function() {
   });
   
   $("#save_new_author").bind('click', function() {
+  		$("#save_new_author").attr('disabled', true)
+  		 .delay(2000)
+    	 .queue(function(next) {$(this).removeAttr('disabled'); next();});
   		var request = $.ajax({
   			type: 'POST',
   			url: '/authors',
