@@ -1,7 +1,8 @@
+/*
 $(function(){
 	$("#search_for_author").bind('click', function() {
   		var request = $.ajax({
-  			type: 'POST',
+  			type: 'GET',
   			url: '/authors',
   			dataType: 'json',
   			data: {
@@ -10,7 +11,10 @@ $(function(){
   		});
   	
   		request.done(function(data) {
-  			'<%= render @author, author: author %>'
+  			document.open();
+			document.write('<%= render :partial => @author, author: author %>');
+			document.close();
   		});
   });
-});
+});*/
+

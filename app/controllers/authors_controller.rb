@@ -6,11 +6,13 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
-    if params[:search_param] != nil
-      @authors = Author.where(:name => params[:search_param]).or(:surname => params[:search_param]).order(:surname).paginate(page: params[:page], per_page: 10)
-    else
-      @authors = Author.all.order(:surname).paginate(page: params[:page], per_page: 10)
-    end
+      unless params[:author_search].blank?
+        @authors = Author.where("surname like :surname OR name like :name",
+                  {:surname => params[:author_search], :name => params[:author_search]})
+                  .order(:surname).paginate(page: params[:page], per_page: 10)
+      else
+        @authors = Author.all.order(:surname).paginate(page: params[:page], per_page: 10)
+      end
   end
 
   # GET /authors/1
@@ -34,7 +36,7 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: I18n.t(:author_created_successfully) }
+        format.html { redirect_to :action => "index", notice: I18n.t(:author_created_successfully) }
         format.json { render json: Author.all.order(:surname) }
       else
         format.html { render action: 'new' }
