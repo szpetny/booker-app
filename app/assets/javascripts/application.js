@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require dataTables/jquery.dataTables
 //= require dataTables/extras/TableTools
 //= require paging.js
+//= require bootstrap
 //= require bootstrap-datepicker.PL.js
 //= require books.js
 //= require common.js
