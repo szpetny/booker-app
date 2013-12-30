@@ -2,15 +2,17 @@ BookerApp::Application.routes.draw do
   #root  'books#index'
   root :to => redirect('/books')
   
-  match '/help',    to: 'static_pages#help',    via: 'get'
+  get '/help',    to: 'static_pages#help'
   
-  match '/signup',  to: 'users#new',            via: 'get'
+  get '/signup',  to: 'users#new'
   
-  match '/signin',  to: 'sessions#new',         via: 'get'
+  get '/signin',  to: 'sessions#new'
   
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  delete '/signout', to: 'sessions#destroy'
   
   resources :books
+  
+  get '/author_books/:author_id' => 'books#index',   :as => 'author_books'
 
   resources :authors
 
