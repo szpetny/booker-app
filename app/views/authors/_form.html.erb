@@ -2,15 +2,18 @@
 <% if @author.errors.any? %>
 <div id="error_explanation">
 	<div class="alert alert-danger">
-		The form contains <%= pluralize(@author.errors.count, "error") %>.
+		<p style="margin: 0px 20px"><%= t(:form_contains, ile: @author.errors.count) %> </p>
+		
+		<ul>
+            <% @author.errors.full_messages.each do |msg| %>
+            <li>
+                * <%= msg %>
+            </li>
+            <% end %>
+        </ul>
+		
 	</div>
-	<ul>
-		<% @author.errors.full_messages.each do |msg| %>
-		<li>
-			* <%= msg %>
-		</li>
-		<% end %>
-	</ul>
+	
 </div>
 <% end %>
 

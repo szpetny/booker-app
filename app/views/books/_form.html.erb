@@ -2,15 +2,16 @@
 <% if @book.errors.any? %>
 <div id="error_explanation">
 	<div class="alert alert-danger">
-		The form contains <%= pluralize(@book.errors.count, "error") %>.
+		<p style="margin: 0px 20px"><%= t(:form_contains, ile: @book.errors.count) %> </p>
+	
+    	<ul>
+    		<% @book.errors.full_messages.each do |msg| %>
+    		<li>
+    			* <%= msg %>
+    		</li>
+    		<% end %>
+    	</ul>
 	</div>
-	<ul>
-		<% @book.errors.full_messages.each do |msg| %>
-		<li>
-			* <%= msg %>
-		</li>
-		<% end %>
-	</ul>
 </div>
 <% end %>
 
@@ -23,11 +24,11 @@
 	    </div>
 	    
 	    <div class="form-group">
-           <%= f.label :author, titleize(t(:author)), :class => 'col-sm-2 control-label' %>
+           <%= f.label :author_id, titleize(t(:author)), :class => 'col-sm-2 control-label' %>
            <div class="col-sm-10">
-               <div class="input-group">
+               <div class="input-group" style="margin-bottom: 15px;">
                   <%= f.collection_select(:author_id, Author.all.order(:surname), :id, :surname_and_name,
-                        {:include_blank => true}, {:class => 'form-control', style: 'padding: 7px 12px'}) %>
+                        {:include_blank => true}, {:class => 'form-control', style: 'padding: 7px 12px;'}) %>
                   <span class="input-group-btn">
                     <button class="btn btn-default btn-primary" data-toggle="modal" data-target="#addAuthorModal">
                        <%= titleize(t(:add_author))%>
@@ -82,7 +83,7 @@
         <div class="form-group">
            <%= f.label :pages, titleize(t(:pages)), :class => 'col-sm-2 control-label' %>
            <div class="col-sm-10">
-                <%= f.number_field :pages, :class => 'form-control' %> 
+                <%= f.number_field :pages, :class => 'form-control', :hint => "Numer" %> 
            </div>
         </div>
 

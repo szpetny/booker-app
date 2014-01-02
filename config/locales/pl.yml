@@ -94,3 +94,42 @@ pl:
   will_paginate:
     previous_label: "Poprzednia"
     next_label: "Następna"
+    
+# error messages
+  form_contains: "Formularz zawiera błędy, w liczbie %{ile}:"
+
+  activerecord:
+    attributes:
+        book:
+          author_id: "Autor"
+          isbn: "Isbn"
+          title: "Tytuł"
+          place: "Miejsce Położenia"  
+          quantity: "Ilość"
+          pages: "Strony"
+        author:
+          name: "Imię"
+          surname: "Nazwisko"
+    errors:
+      models:
+        book:
+          attributes:
+            author_id: 
+              blank: "nie może być pusty"
+            isbn: 
+              blank: "nie może być pusty"
+              invalid: "musi być numerem"
+            title: 
+              blank: "nie może być pusty"
+            place: 
+              blank: "nie może być puste"  
+            quantity:
+              not_a_number: "pole numeryczne - podaj liczbę"
+            pages: 
+              not_a_number: "pole numeryczne - podaj liczbę"
+        author:
+          attributes:
+            name:
+              blank: "nie może być puste" 
+            surname:
+              blank: "nie może być puste" 

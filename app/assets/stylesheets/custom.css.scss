@@ -154,12 +154,10 @@ input, select {
   }
 }
 
-.field_with_errors {
-  @extend .control-group;
-  @extend .error;
+/* form errors */
+form .has-error:before, form .has-error:after {
+  display: inline;
 }
-
-
 /* Users index */
 
 .people {
