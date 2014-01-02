@@ -20,4 +20,116 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  day: "Day"
+  month: "Month"
+  year: "Year"
+  
+  welcome: "Welcome to the virtual library!"
+  main_app_title: "Library"
+  
+  books: "books"
+  books_index: "books index"
+  add_book: "add a new book"
+  edit_book: "edit the book"
+  
+  author_created_successfully: "Author was added to the database"
+  book_created_successfully: "Book was added to the database"
+  changes_updated_successfully: "Changes saved successfully"  
+
+  authors: "authors"
+  authors_index: "authors index"
+  add_author: "add an author"
+  edit_author: "edit the author"
+  
+  users_index: "users index"
+  add_user: "add a new user"
+  edit_user: "edit the user"
+  profile_updated: "Profile was changed"
+  user_destroyed: "User was deleted"
+
+  help: "help"
+  
+  index: "index"
+  edit: "edit"
+  destroy: "delete"
+  show: "show"
+  back: "back"
+  save: "save"
+  cancel: "cancel"
+  close: "close"
+  new_user: "new user?"
+  are_you_sure: "are you sure?"
+  please_sign_in: "please sign in!"  
+  sign_in: "sign in"
+  sign_out: "sign out"
+  sign_up: "sign up!"
+  invalid_email_pass_combination: "wrong e-mail password combination"
+  
+  account: "my account"
+  profile: "my profile"
+  edit_profile: "edit the profile"
+  settings: "settings"
+  create_account: "create an account"
+ 
+  name: "Name"
+  surname: "Surname"
+  isbn: "ISBN"
+  title: "Title"
+  author: "Author"
+  language: "Language"
+  description: "Description"
+  photo: "Photo"
+  quantity: "Quantity"
+  place: "Place of living"
+  release_date: "Release date"
+  pages: "Pages"
+  email: "E-mail"
+  password: "Password"
+  password_confirmation: "Password confirmation"
+  
+  author_books: "author's books"
+  author_search: "Type name or surname"
+  search: "search"
+  
+  will_paginate:
+    previous_label: "Previous"
+    next_label: "Next"
+    
+# error messages
+  form_contains: "Form contains %{ile} error(s):"
+
+  activerecord:
+    attributes:
+        book:
+          author_id: "Author"
+          isbn: "Isbn"
+          title: "Title"
+          place: "Place of living"  
+          quantity: "Quantity"
+          pages: "Pages"
+        author:
+          name: "Name"
+          surname: "Surname"
+    errors:
+      models:
+        book:
+          attributes:
+            author_id: 
+              blank: "must not be blank"
+            isbn: 
+              blank: "must not be blank"
+              invalid: "has to be a number"
+            title: 
+              blank: "must not be blank"
+            place: 
+              blank: "must not be blank"
+            quantity:
+              not_a_number: "please type a number"
+            pages: 
+              not_a_number: "please type a number"
+        author:
+          attributes:
+            name:
+              blank: "must not be blank"
+            surname:
+              blank: "must not be blank"
