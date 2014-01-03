@@ -107,6 +107,7 @@ pl:
           place: "Miejsce Położenia"  
           quantity: "Ilość"
           pages: "Strony"
+          release_date: "Data Wydania"
         author:
           name: "Imię"
           surname: "Nazwisko"
@@ -127,6 +128,8 @@ pl:
               not_a_number: "pole numeryczne - podaj liczbę"
             pages: 
               not_a_number: "pole numeryczne - podaj liczbę"
+            release_date:
+              invalid: "wymagany format daty to: RRRR-MM-DD"
         author:
           attributes:
             name:

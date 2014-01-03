@@ -107,6 +107,7 @@ en:
           place: "Place of living"  
           quantity: "Quantity"
           pages: "Pages"
+          release_date: "Release date"
         author:
           name: "Name"
           surname: "Surname"
@@ -127,6 +128,8 @@ en:
               not_a_number: "please type a number"
             pages: 
               not_a_number: "please type a number"
+            release_date:
+              invalid: "required date format is: YYYY-MM-DD"
         author:
           attributes:
             name:

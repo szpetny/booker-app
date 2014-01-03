@@ -6,6 +6,7 @@ class Book < ActiveRecord::Base
   validates :quantity, numericality: {greater_than: 0}, :unless => Proc.new {|book| book.quantity.nil? }
   validates :pages, numericality: {greater_than: 0}, :unless => Proc.new {|book| book.pages.nil? }
   validates :place, presence: true
+  validates :release_date, format: /\A((1[89][0-9]{2}|20[0-9]{2})\-(0[1-9]|[12][0-8])\-(0[1-9]|1[0-9]|2[0-9]|30|31))\z/
   
   mount_uploader :photo, PictureUploader
   
