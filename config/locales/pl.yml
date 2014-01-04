@@ -136,3 +136,5 @@ pl:
               blank: "nie może być puste" 
             surname:
               blank: "nie może być puste" 
+              
+  books_exist: "Istnieją książki przypisane do tego autora. Nie może on zostać usunięty!"

@@ -136,3 +136,5 @@ en:
               blank: "must not be blank"
             surname:
               blank: "must not be blank"
+              
+  books_exist: "There are some books of this author. The author must not be removed!"

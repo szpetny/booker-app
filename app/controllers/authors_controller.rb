@@ -50,7 +50,7 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to @author, notice: I18n.t(:changes_updated_successfully) }
+        format.html { redirect_to authors_path, notice: I18n.t(:changes_updated_successfully) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -62,11 +62,13 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1
   # DELETE /authors/1.json
   def destroy
-    @author.destroy
-    respond_to do |format|
-      format.html { redirect_to authors_url }
-      format.json { head :no_content }
+    begin
+      @author.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      flash.now[:error] =   I18n.t(:books_exist)
     end
+     @authors = Author.all.order(:surname).paginate(page: params[:page], per_page: 10)
+    render action: 'index'
   end
 
   private
