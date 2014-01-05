@@ -79,6 +79,7 @@ pl:
   language: "Język"
   description: "Opis"
   photo: "Zdjęcie"
+  current_photo: "Obecne Zdjęcie"
   quantity: "Ilość"
   place: "Miejsce położenia"
   release_date: "Data wydania"

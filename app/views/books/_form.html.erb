@@ -99,6 +99,13 @@
                 <%= f.submit titleize(t(:save)), class: "btn btn-primary" %>
              </div>
         </div>
+        <br/>
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong><%= titleize(t(:current_photo)) %>:</strong></div>
+          <div class="panel-body">
+             <%= image_tag(@book.photo, :width => 600) if @book.photo.present? %>
+          </div>
+        </div>
 	</div>
 <% end %>
 

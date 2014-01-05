@@ -25,7 +25,14 @@
       <tr>
         <td><%= book.title %></td>
         <td><%= book.author.name_and_surname if book.author %></td>
-        <td><img src="<%= book.photo %>" height="20%" width="20%" alt="" title="<%= titleize(t(:photo)) %>"/></td>
+        <td>
+          <% if book.photo.nil? %>
+             <img src="default_pic.jpg" height='100px' width='100px' alt='' title="<%= titleize(t(:photo)) %>" />  
+          <% else %>
+             <%= image_tag book.photo,  size: '100x100', alt: '', title: titleize(t(:photo)) %>   
+          <% end %>
+        </td>
+        
         <td><%= book.quantity %></td>
         <td><%= book.language %></td>
         <td><%= book.place %></td>
