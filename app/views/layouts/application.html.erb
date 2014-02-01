@@ -7,6 +7,9 @@
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/shim' %>
 		<%= favicon_link_tag%>
+		<script type="text/javascript">
+          window.I18n = <%= current_translations.to_json.html_safe %>
+        </script>
 	</head>
 	<body>
 		<%= render 'layouts/header' %>

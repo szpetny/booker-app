@@ -5,73 +5,86 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <p><strong><%= titleize(t(:author)) %>:</strong></p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <p><%= @book.author.name_and_surname %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
+        <p><strong><%= titleize(t(:book_category)) %>:</strong></p>
+    </div>
+    <div class="col-sm-8">
+        <ul>
+            <% @book.book_categories.each do |t| %>
+                <li><%= t.category_name %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-4">
         <p><strong><%= titleize(t(:isbn)) %>:</strong></p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <p><%= @book.isbn %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <p><strong><%= titleize(t(:language)) %>:</strong></p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <p><%= @book.language %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <p><strong><%= titleize(t(:description)) %>:</strong></p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <p><%= @book.description %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <p><strong><%= titleize(t(:quantity)) %>:</strong></p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <p><%= @book.quantity %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <p><strong><%= titleize(t(:place)) %>:</strong></p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <p><%= @book.place %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <p><strong><%= titleize(t(:release_date)) %>:</strong></p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <p><%= @book.release_date %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <p><strong><%= titleize(t(:pages)) %>:</strong></p>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <p><%= @book.pages %></p>
     </div>
 </div>

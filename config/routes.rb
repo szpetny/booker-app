@@ -1,4 +1,6 @@
 BookerApp::Application.routes.draw do
+  resources :book_categories
+
   #root  'books#index'
   root :to => redirect('/books')
   

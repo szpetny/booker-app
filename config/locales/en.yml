@@ -38,7 +38,7 @@ en:
 
   authors: "authors"
   authors_index: "authors index"
-  add_author: "add an author"
+  add_author: "add a new author"
   edit_author: "edit the author"
   
   users_index: "users index"
@@ -87,10 +87,16 @@ en:
   email: "E-mail"
   password: "Password"
   password_confirmation: "Password Confirmation"
+  book_category: "Categories"
+  category_name: "Category name"
+  add_category: "add a new category"
   
   author_books: "author's books"
   author_search: "Type name or surname"
   search: "search"
+  
+  none_selected: "non quae sit"
+  selected: "selected"
   
   will_paginate:
     previous_label: "Previous"
@@ -98,7 +104,11 @@ en:
     
 # error messages
   form_contains: "Form contains %{ile} error(s):"
-
+  
+  errors:
+    messages:
+        extension_white_list_error: "Select a file with extension .png, .jpg, .jpeg lub .gif"
+        
   activerecord:
     attributes:
         book:

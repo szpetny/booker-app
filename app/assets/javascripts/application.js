@@ -17,6 +17,7 @@
 //= require paging.js
 //= require bootstrap
 //= require bootstrap-datepicker.PL.js
+//= require bootstrap-multiselect.js
 //= require books.js
 //= require common.js
 //= require_tree .

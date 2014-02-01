@@ -38,7 +38,7 @@ pl:
 
   authors: "autorzy"
   authors_index: "spis autorów"
-  add_author: "dodaj autora"
+  add_author: "dodaj nowego autora"
   edit_author: "edytuj autora"
   
   users_index: "spis użytkowników"
@@ -79,7 +79,7 @@ pl:
   language: "Język"
   description: "Opis"
   photo: "Zdjęcie"
-  current_photo: "Obecne Zdjęcie"
+  current_photo: "Obecne zdjęcie"
   quantity: "Ilość"
   place: "Miejsce położenia"
   release_date: "Data wydania"
@@ -87,10 +87,16 @@ pl:
   email: "E-mail"
   password: "Hasło"
   password_confirmation: "Potwierdź hasło"
+  book_category: "Kategorie"
+  category_name: "Nazwa kategorii"
+  add_category: "dodaj nową kategorię"
   
   author_books: "książki autora"
   author_search: "Podaj imię lub nazwisko"
   search: "szukaj"
+  
+  none_selected: "non quae sit"
+  selected: "wybrano"
   
   will_paginate:
     previous_label: "Poprzednia"
@@ -98,7 +104,11 @@ pl:
     
 # error messages
   form_contains: "Formularz zawiera błędy, w liczbie %{ile}:"
-
+  
+  errors:
+    messages:
+        extension_white_list_error: "Wybierz plik z rozszerzeniem .png, .jpg, .jpeg lub .gif"
+        
   activerecord:
     attributes:
         book:
@@ -139,3 +149,5 @@ pl:
               blank: "nie może być puste" 
               
   books_exist: "Istnieją książki przypisane do tego autora. Nie może on zostać usunięty!"
+  
+ 

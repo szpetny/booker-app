@@ -65,10 +65,9 @@ class AuthorsController < ApplicationController
     begin
       @author.destroy
     rescue ActiveRecord::DeleteRestrictionError => e
-      flash.now[:error] =   I18n.t(:books_exist)
+      flash.now[:error] = I18n.t(:books_exist)
     end
-     @authors = Author.all.order(:surname).paginate(page: params[:page], per_page: 10)
-    render action: 'index'
+    redirect_to :action => "index"
   end
 
   private
