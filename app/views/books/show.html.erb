@@ -92,12 +92,16 @@
 <div class="panel panel-default">
   <div class="panel-heading"><strong><%= titleize(t(:photo)) %>:</strong></div>
   <div class="panel-body">
-     <%= image_tag(@book.photo, :width => 600) if @book.photo.present? %>
+     <% if @book.photo.present? %>
+        <%= image_tag(@book.photo, :width => 600) %>
+     <% else %>
+        <p><%= I18n.t(:zero_possibility) %></p>
+     <% end %>
   </div>
 </div>
 <br>
 <% if current_user.admin? %>
-    <%= link_to titleize(t(:edit)), edit_book_path(@book) %> |
+    <%= link_to titleize(t(:edit)), edit_book_path(@book) %>
 <% end %>
 <%= link_to titleize(t(:back)), books_path %>
 </div>

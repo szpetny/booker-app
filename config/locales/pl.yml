@@ -79,6 +79,7 @@ pl:
   language: "Język"
   description: "Opis"
   photo: "Zdjęcie"
+  zero_possibility: "Brak"
   current_photo: "Obecne zdjęcie"
   quantity: "Ilość"
   place: "Miejsce położenia"

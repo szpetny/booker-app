@@ -79,6 +79,7 @@ en:
   language: "Language"
   description: "Description"
   photo: "Photo"
+  zero_possibility: "None"
   current_photo: "Current Photo"
   quantity: "Quantity"
   place: "Place of Living"
