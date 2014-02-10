@@ -1,6 +1,4 @@
 BookerApp::Application.routes.draw do
-  resources :book_categories
-
   #root  'books#index'
   root :to => redirect('/books')
   
@@ -21,6 +19,8 @@ BookerApp::Application.routes.draw do
   resources :users
   
   resources :sessions, only: [:new, :create, :destroy]
+  
+  resources :book_categories, only: [:create, :index, :destroy]
   
   #root :to => "books#index"
   

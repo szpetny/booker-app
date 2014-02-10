@@ -1,0 +1,7 @@
+<li class="row">
+    <div class="col-md-3"><%= book_category.category_name %></div>
+  <% if signed_in? && current_user.admin? %>
+    <div class="col-md-3">| <%= link_to titleize(t(:destroy)), book_category, method: :delete,
+                                  data: { confirm: titleize(t(:are_you_sure)) } %></div>
+  <% end %>
+</li>

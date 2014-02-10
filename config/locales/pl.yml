@@ -47,6 +47,8 @@ pl:
   profile_updated: "Profil został zmieniony"
   user_destroyed: "Użytkownik został usunięty"
 
+  book_categories: "kategorie książek"
+
   help: "pomoc"
   
   index: "indeks"
