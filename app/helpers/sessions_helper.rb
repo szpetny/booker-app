@@ -29,10 +29,9 @@ module SessionsHelper
   end
   
   def redirect_back_or_default
-    url = session[:return_to] || root_path
+    url = session[:return_to] || root_url
     session[:return_to] = nil
-    url = root_path if url.eql?('/signout')
-    logger.debug "URL to redirect to: #{url}"
+    url = root_url if url.eql?('/signout')
     redirect_to(url)
   end
 

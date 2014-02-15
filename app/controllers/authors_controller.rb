@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
-  before_action :set_author, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy, :index, :show]
+  before_action :set_author, only: [:edit, :update, :destroy]
+  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy, :index]
   before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /authors
@@ -13,11 +13,6 @@ class AuthorsController < ApplicationController
       else
         @authors = Author.all.order(:surname).paginate(page: params[:page], per_page: 10)
       end
-  end
-
-  # GET /authors/1
-  # GET /authors/1.json
-  def show
   end
 
   # GET /authors/new
@@ -36,8 +31,8 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to :action => "index", notice: I18n.t(:author_created_successfully) }
-        format.json { render json: Author.all.order(:surname) }
+        format.html { redirect_to authors_url, notice: I18n.t(:author_created_successfully) }
+        format.json { render json: Author.all.order(:surname), status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @author.errors, status: :unprocessable_entity }
@@ -50,7 +45,7 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to authors_path, notice: I18n.t(:changes_updated_successfully) }
+        format.html { redirect_to authors_url, notice: I18n.t(:changes_updated_successfully) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

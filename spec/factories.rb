@@ -1,11 +1,11 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:name)  { |n| "Szmatalson #{n}" }
-    sequence(:surname)  { |n| "Dupalson #{n}" }
-    sequence(:email) { |n| "szmatalson_#{n}@example.com"}
-    password "jebjeb"
-    password_confirmation "jebjeb"
-
+    sequence(:name)  { |n| "Karol #{n}" }
+    sequence(:surname)  { |n| "Idiota #{n}" }
+    sequence(:email) { |n| "szmata#{n}@example.com"}
+    password "siersciuch"
+    password_confirmation "siersciuch"
+    
     factory :admin do
       admin true
     end
@@ -18,12 +18,16 @@ FactoryGirl.define do
   
   factory :book do
     isbn "83-07-0234204"
-    title "Mistrz i Malgorzata"
+    title "Leszcz i Malgorzata"
     author 
-    language "polski"
-    description "Mistrz i Malgorzata"
+    language "ruslanski"
+    description "nudny opis po rumunsku"
     quantity 1
-    place "kredens u Gosi"
+    place "srodek jamnika"
     pages 476
+  end
+  
+  factory :book_category do
+    category_name "Skarpety Romana"
   end
 end

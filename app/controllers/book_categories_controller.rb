@@ -5,17 +5,17 @@ class BookCategoriesController < ApplicationController
   
   # GET /book_categories
   def index
-    @book_categories = BookCategory.all
+    @book_categories = BookCategory.all.order(:category_name)
   end
   
   # POST /book_categories
   # POST /book_categories.json
   def create
     @book_category = BookCategory.new(book_category_params)
-
+    #logger.debug "create  #{@book_category.category_name}"
     respond_to do |format|
       if @book_category.save
-         format.json { render json: @book_category }
+         format.json { render json: @book_category, status: :created }
       else
         format.json { render json: @book_category.errors, status: :unprocessable_entity }
       end
@@ -26,6 +26,7 @@ class BookCategoriesController < ApplicationController
   # DELETE /book_categories/1.json
   def destroy
     @book_category.destroy
+    flash[:success] = I18n.t(:book_category_destroyed)
     respond_to do |format|
       format.html { redirect_to book_categories_url }
       format.json { head :no_content }

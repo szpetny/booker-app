@@ -100,6 +100,8 @@ pl:
   
   none_selected: "non quae sit"
   selected: "wybrano"
+  book_category_destroyed: "Kategoria została usunięta"
+  book_destroyed: "Książka została usunięta"
   
   will_paginate:
     previous_label: "Poprzednia"
@@ -150,7 +152,17 @@ pl:
               blank: "nie może być puste" 
             surname:
               blank: "nie może być puste" 
-              
+        user:
+          attributes:
+            password:
+              too_short: "za krótkie"   
+            password_confirmation:
+              confirmation: "brak potwierdzenia"
+              blank: "nie może być puste"
+            name:
+              blank: "nie może być puste"
+            email:
+              invalid: "niepoprawny"
   books_exist: "Istnieją książki przypisane do tego autora. Nie może on zostać usunięty!"
   
  

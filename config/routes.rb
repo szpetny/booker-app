@@ -14,13 +14,13 @@ BookerApp::Application.routes.draw do
   
   get '/author_books/:author_id' => 'books#index',   :as => 'author_books'
 
-  resources :authors
+  resources :authors, only: [:new, :create, :edit, :update, :destroy, :index]
 
   resources :users
   
   resources :sessions, only: [:new, :create, :destroy]
   
-  resources :book_categories, only: [:create, :index, :destroy]
+  resources :book_categories, only: [:index, :create, :destroy]
   
   #root :to => "books#index"
   

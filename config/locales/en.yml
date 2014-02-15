@@ -100,6 +100,8 @@ en:
   
   none_selected: "non quae sit"
   selected: "selected"
+  book_category_destroyed: "Book category was deleted"
+  book_destroyed: "Book was deleted"
   
   will_paginate:
     previous_label: "Previous"
@@ -150,5 +152,16 @@ en:
               blank: "must not be blank"
             surname:
               blank: "must not be blank"
+        user:
+          attributes:
+            password:
+              too_short: "too short"
+            password_confirmation:
+              confirmation: "need to confirm"
+              blank: "must not be blank"
+            name:
+              blank: "must not be blank"
+            email:
+              invalid: "invalid"
               
   books_exist: "There are some books of this author. The author must not be removed!"

@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   # GET /books/1/edit
   def edit
     @book_categories = {}
-    BookCategory.find(:all).collect {|bc| @book_categories[bc.category_name] = bc.id }
+    BookCategory.all.order(:category_name).collect {|bc| @book_categories[bc.category_name] = bc.id }
   end
 
   # POST /books
@@ -39,13 +39,9 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     
-    logger.debug "before method BOOK picture url: #{@book.photo}"
-        if @book.photo.blank?
-          @book.photo = "/assets/images/default_pic.jpg"
-          logger.debug "inside if BOOK picture url: #{@book.photo}"
-        end
-    
-    logger.debug "after method BOOK picture url: #{@book.photo}"
+    if @book.photo.blank?
+       @book.photo = "/assets/images/default_pic.jpg"
+    end
     
     respond_to do |format|
       if @book.save
@@ -54,7 +50,7 @@ class BooksController < ApplicationController
         format.json { render action: 'show', status: :created, location: @book }
       else
         @book_categories = {}
-        BookCategory.find(:all).collect {|bc| @book_categories[bc.category_name] = bc.id }
+        BookCategory.all.order(:category_name).collect {|bc| @book_categories[bc.category_name] = bc.id }
         format.html { render action: 'new' }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
@@ -71,7 +67,7 @@ class BooksController < ApplicationController
         format.json { head :no_content }
       else
         @book_categories = {}
-        BookCategory.find(:all).collect {|bc| @book_categories[bc.category_name] = bc.id }
+        BookCategory.all.order(:category_name).collect {|bc| @book_categories[bc.category_name] = bc.id }
         format.html { render action: 'edit' }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
@@ -82,6 +78,7 @@ class BooksController < ApplicationController
   # DELETE /books/1.json
   def destroy
     @book.destroy
+    flash[:success] = I18n.t(:book_destroyed)
     respond_to do |format|
       format.html { redirect_to books_url }
       format.json { head :no_content }
@@ -99,18 +96,12 @@ class BooksController < ApplicationController
       params.require(:book).permit(:isbn, :title, :author_id, :language, :description, :photo, :quantity, :place, :release_date, :pages)
     end
     
-     def handle_book_categories
-       if params['book_category_ids']
-         @book.book_categories.clear
-         book_categories = params['book_category_ids'].map { |id| BookCategory.find(id) }
-         @book.book_categories << book_categories 
-       end
-     end 
+    def handle_book_categories
+      if params['book_category_ids']
+        @book.book_categories.clear
+        book_categories = params['book_category_ids'].map { |id| BookCategory.find(id) }
+        @book.book_categories << book_categories 
+      end
+    end 
      
-=begin
-     def handle_photo
-       
-     end
-=end
-
 end

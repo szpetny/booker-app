@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :admin_user,     only: [:index, :show, :edit, :update, :destroy]
+  before_action :admin_user,     only: [:index, :destroy]
   before_action :correct_user,   only: [:edit, :update, :show, :destroy]
+  before_action :set_user_to_edit_by_admin, only: [:edit, :update]
     
   # GET /users
   # GET /users.json
@@ -39,10 +40,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if @user.update_attributes(user_params)
+    if @user_to_edit.update_attributes(user_params)
       flash[:success] = I18n.t(:profile_updated)
-      sign_in @user
-      redirect_to @user
+      redirect_to @user_to_edit
     else
       render 'edit'
     end
@@ -66,5 +66,9 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user) || current_user.admin?
+    end
+    
+    def set_user_to_edit_by_admin
+      @user_to_edit = User.find(params[:id])
     end
 end
