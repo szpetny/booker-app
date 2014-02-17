@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe BooksController do
-
   describe "GET index" do
     before(:each) do
       sign_in(FactoryGirl.create(:user))

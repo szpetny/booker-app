@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
+    user = User.find_by(email: downcase_email)
     if user && user.authenticate(params[:session][:password])
       sign_in user
       redirect_back_or_default
@@ -17,4 +17,10 @@ class SessionsController < ApplicationController
     sign_out
     redirect_to root_url
   end
+  
+  private
+  
+    def downcase_email 
+      return params[:session][:email].downcase
+    end
 end

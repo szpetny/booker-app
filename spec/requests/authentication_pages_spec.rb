@@ -5,6 +5,13 @@ describe "Authentication" do
 
   subject { page }
 
+  describe 'root' do
+    it "redirects to /books" do
+      get "/"
+      response.should redirect_to("/books");
+    end
+  end
+
   describe "signin page" do
     before { visit signin_path }
 

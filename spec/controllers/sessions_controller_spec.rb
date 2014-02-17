@@ -4,30 +4,25 @@ require 'pp'
 describe SessionsController do
   describe "POST create" do
     let(:user) {FactoryGirl.create(:user)}
-    let(:valid_attributes) {
-      {"email" => "szmata2@example.com",
-      "password" => "xxxxx"}
+    let(:valid_attributes) { {"session" =>
+      {"email" => "szmata1@example.com",
+       "password" => "siersciuch"}}
     }
     
     let(:invalid_attributes) {
-      {"email" => "szmata2@example.com",
+      {"email" => "szmata1@example.com",
       "password" => ""}
     }
     
     before(:each) do
-      User.stub(:find_by).with(user.email).and_return(user)
+      email = controller.stub!(:downcase_email).and_return("szmata1@example.com")
+      User.stub!(:find_by).and_return(user)
     end
     describe "with valid params" do
-      it "creates a new Session" do
-        user.stub(:authenticate).with("xxx").and_return(true)
-        expect {
-          post :create, :session => valid_attributes
-        }.to receive(:sign_in).with(user)
-      end
-
       it "redirects to the created session" do
+        user.stub!(:authenticate).and_return(true)
         post :create, :session => valid_attributes
-        response.should receive(:redirect_back_or_default)
+        response.should redirect_to(root_url)
       end
     end
 
@@ -41,10 +36,11 @@ describe SessionsController do
   end
   
   describe "DELETE destroy" do
-    it "destroys the requested session" do
-      expect {
-        delete :destroy
-      }.to receive(:sign_out)
+    let(:user) {FactoryGirl.create(:user)}
+    before(:each) do
+      email = controller.stub!(:downcase_email).and_return("szmata1@example.com")
+      User.stub!(:find_by).and_return(user)
+      user.stub!(:authenticate).and_return(true)
     end
 
     it "redirects to the sessions list" do

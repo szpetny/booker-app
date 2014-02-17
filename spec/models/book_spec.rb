@@ -10,7 +10,7 @@ describe Book do
                      language: "polski",
                      description: "Mistrz i Malgorzata",
                      quantity: 1,
-                     place: "polka u Gosi",
+                     place: "wewnatrz jamnika",
                      pages: 476)
   end
 
@@ -25,6 +25,7 @@ describe Book do
   it { should respond_to(:place) }
   it { should respond_to(:pages) }
   it { should respond_to(:author) }
+  it { should respond_to(:book_categories) }
   its(:author) { should eq author }
 
   it { should be_valid }
@@ -32,5 +33,50 @@ describe Book do
   describe "when author_id is not present" do
     before { @book.author_id = nil }
     it { should_not be_valid }
+  end
+  
+  describe "when isbn is not present" do
+    before { @book.isbn = nil }
+    it { should_not be_valid }
+  end
+  
+  describe "when isbn is not a number with hyphens" do
+    before { @book.isbn = "nil" }
+    it { should_not be_valid }
+  end
+  
+  describe "when title is not present" do
+    before { @book.title = nil }
+    it { should_not be_valid }
+  end
+  
+  describe "when quantity is not present" do
+    before { @book.quantity = nil }
+    it { should be_valid }
+  end
+  
+  describe "when quantity is not a number" do
+    before { @book.quantity = "nil" }
+    it { should_not be_valid }
+  end
+  
+  describe "when pages is not present" do
+    before { @book.pages = nil }
+    it { should be_valid }
+  end
+  
+  describe "when pages is not a number" do
+    before { @book.pages = "nil" }
+    it { should_not be_valid }
+  end
+  
+  describe "when place is not present" do
+    before { @book.place = nil }
+    it { should_not be_valid }
+  end
+  
+  describe "when release date is not present" do
+    before { @book.release_date = nil }
+    it { should be_valid }
   end
 end

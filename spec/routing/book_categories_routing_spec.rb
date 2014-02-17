@@ -8,15 +8,15 @@ describe BookCategoriesController do
     end
 
     it "routes to #new" do
-      get("/book_categories/new").should route_to("book_categories#new")
+      get("/book_categories/new").should_not be_routable
     end
 
     it "routes to #show" do
-      get("/book_categories/1").should route_to("book_categories#show", :id => "1")
+      get("/book_categories/1").should_not be_routable
     end
 
     it "routes to #edit" do
-      get("/book_categories/1/edit").should route_to("book_categories#edit", :id => "1")
+      get("/book_categories/1/edit").should_not be_routable
     end
 
     it "routes to #create" do
@@ -24,7 +24,7 @@ describe BookCategoriesController do
     end
 
     it "routes to #update" do
-      put("/book_categories/1").should route_to("book_categories#update", :id => "1")
+      put("/book_categories/1").should_not be_routable
     end
 
     it "routes to #destroy" do
