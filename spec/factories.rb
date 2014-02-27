@@ -24,6 +24,7 @@ FactoryGirl.define do
     description "nudny opis po rumunsku"
     quantity 1
     place "srodek jamnika"
+    release_date "1986-04-26"
     pages 476
   end
   

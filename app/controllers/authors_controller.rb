@@ -8,7 +8,7 @@ class AuthorsController < ApplicationController
   def index
       unless params[:author_search].blank?
         @authors = Author.where("surname like :surname OR name like :name",
-                  {:surname => params[:author_search], :name => params[:author_search]})
+                  {surname: params[:author_search], name: params[:author_search]})
                   .order(:surname).paginate(page: params[:page], per_page: 10)
       else
         @authors = Author.all.order(:surname).paginate(page: params[:page], per_page: 10)
@@ -62,7 +62,7 @@ class AuthorsController < ApplicationController
     rescue ActiveRecord::DeleteRestrictionError => e
       flash.now[:error] = I18n.t(:books_exist)
     end
-    redirect_to :action => "index"
+    redirect_to action: "index"
   end
 
   private

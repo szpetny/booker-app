@@ -8,11 +8,11 @@ describe AuthorsController do
     end
 
     it "routes to #index with :author_search param" do
-      get('/authors?author_search=devil').should route_to('authors#index', :author_search => "devil")
+      get('/authors?author_search=devil').should route_to('authors#index', author_search: "devil")
     end
     
     it "routes /author_books/:author_id" do
-      get('/author_books/1').should route_to('books#index', :author_id => "1")
+      get('/author_books/1').should route_to('books#index', author_id: "1")
     end
 
     it "routes to #new" do
@@ -24,7 +24,7 @@ describe AuthorsController do
     end
 
     it "routes to #edit" do
-      get("/authors/1/edit").should route_to("authors#edit", :id => "1")
+      get("/authors/1/edit").should route_to("authors#edit", id: "1")
     end
 
     it "routes to #create" do
@@ -32,11 +32,11 @@ describe AuthorsController do
     end
 
     it "routes to #update" do
-      put("/authors/1").should route_to("authors#update", :id => "1")
+      put("/authors/1").should route_to("authors#update", id: "1")
     end
 
     it "routes to #destroy" do
-      delete("/authors/1").should route_to("authors#destroy", :id => "1")
+      delete("/authors/1").should route_to("authors#destroy", id: "1")
     end
 
   end

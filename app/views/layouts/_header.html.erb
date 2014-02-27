@@ -27,7 +27,7 @@
                         <li><% if current_user.admin? %><%= link_to titleize(t(:add_author)), new_author_path %><% end %></li>
                       </ul>
                     </li>
-                    <li><%= link_to titleize(t(:users_index)), users_path %></li>
+                    <li><% if current_user.admin? %><%= link_to titleize(t(:users_index)), users_path %><% end %></li>
                     <li id="fat-menu" class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <%= titleize(t(:account)) %> <b class="caret"></b>

@@ -5,9 +5,9 @@ describe "User pages" do
   subject { page }
   
   describe "index" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:admin) { FactoryGirl.create(:admin) }
     before(:each) do
-      sign_in user
+      sign_in admin
       visit users_path
     end
 
@@ -22,22 +22,23 @@ describe "User pages" do
 
       it "should list each user" do
         User.paginate(page: 1).each do |user|
-          expect(page).to have_selector('li', text: user.name)
+          expect(page).to have_css('a', text: user.name)
         end
       end
     end
     
     describe "delete links" do
-      it { should_not have_link(titleize(I18n.t(:destroy))) }
-
       describe "as an admin user" do
         let(:admin) { FactoryGirl.create(:admin) }
+        let(:user) {FactoryGirl.create(:user)}
         before do
+          user.save
+          ApplicationController.any_instance.stub(:current_user).and_return(admin)
           sign_in admin
           visit users_path
         end
 
-        it { should have_link(titleize(I18n.t(:destroy)), href: user_path(User.first)) }
+        it { should have_link(titleize(I18n.t(:destroy)), href: user_path(user)) }
         it "should be able to delete another user" do
           expect do
             click_link(titleize(I18n.t(:destroy)), match: :first)
@@ -50,7 +51,10 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
+    before do
+       ApplicationController.any_instance.stub(:current_user).and_return(user)
+       visit user_path(user) 
+    end
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
@@ -77,16 +81,16 @@ describe "User pages" do
         before { click_button submit }
 
         it { should have_title(titleize(I18n.t(:sign_up))) }
-        it { should have_content('error') }
+        it { should have_css('div.has-error') }
       end
     end
 
     describe "with valid information" do
       before do
-        fill_in titleize(I18n.t(:name)),         with: "User"
-        fill_in titleize(I18n.t(:surname)),         with: "Example"
-        fill_in titleize(I18n.t(:email)),        with: "user@example.com"
-        fill_in titleize(I18n.t(:password)),     with: "foobar"
+        fill_in titleize(I18n.t(:name)), with: "User"
+        fill_in titleize(I18n.t(:surname)), with: "Example"
+        fill_in titleize(I18n.t(:email)), with: "user@example.com"
+        fill_in titleize(I18n.t(:password)), with: "foobar"
         fill_in titleize(I18n.t(:password_confirmation)), with: "foobar"
       end
 
@@ -120,7 +124,7 @@ describe "User pages" do
     describe "with invalid information" do
       before { click_button titleize(I18n.t(:save)) }
 
-      it { should have_content('error') }
+      it { should have_css('div.alert-info') }
     end
     
     describe "with valid information" do
@@ -148,7 +152,11 @@ describe "User pages" do
         { user: { admin: true, password: user.password,
                   password_confirmation: user.password } }
       end
-      before { patch user_path(user), params }
+      let(:admin) {FactoryGirl.create(:admin)}
+      before do
+        ApplicationController.any_instance.stub(:current_user).and_return(admin)
+        patch user_path(user), params 
+      end
       specify { expect(user.reload).not_to be_admin }
     end
   end

@@ -46,6 +46,7 @@ en:
   edit_user: "edit the user"
   profile_updated: "Profile was changed"
   user_destroyed: "User was deleted"
+  confirm_password: "To finish operation fill in the password"
 
   book_categories: "book categories"
 
@@ -156,6 +157,7 @@ en:
           attributes:
             password:
               too_short: "too short"
+              blank: "must not be blank"
             password_confirmation:
               confirmation: "need to confirm"
               blank: "must not be blank"

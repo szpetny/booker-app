@@ -1,3 +1,5 @@
+require 'pp'
+
 module UsersHelper
   # Before filters
     def signed_in_user
@@ -6,6 +8,6 @@ module UsersHelper
     end
 
     def admin_user
-      redirect_to(root_url) unless current_user.admin?
+      redirect_to(root_url) unless current_user != nil && current_user.admin?
     end
 end

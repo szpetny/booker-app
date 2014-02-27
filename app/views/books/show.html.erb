@@ -5,86 +5,84 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2 col-md-offset-4">
         <p><strong><%= titleize(t(:author)) %>:</strong></p>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <p><%= @book.author.name_and_surname %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2 col-md-offset-4">
         <p><strong><%= titleize(t(:book_category)) %>:</strong></p>
     </div>
-    <div class="col-sm-8">
-        <ul>
-            <% @book.book_categories.each do |t| %>
-                <li><%= t.category_name %></li>
-            <% end %>
-        </ul>
+    <div class="col-sm-6">
+        <% @book.book_categories.each do |t| %>
+          <p><%= t.category_name %></p>
+        <% end %>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2 col-md-offset-4">
         <p><strong><%= titleize(t(:isbn)) %>:</strong></p>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <p><%= @book.isbn %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2 col-md-offset-4">
         <p><strong><%= titleize(t(:language)) %>:</strong></p>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <p><%= @book.language %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2 col-md-offset-4">
         <p><strong><%= titleize(t(:description)) %>:</strong></p>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <p><%= @book.description %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2 col-md-offset-4">
         <p><strong><%= titleize(t(:quantity)) %>:</strong></p>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <p><%= @book.quantity %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2 col-md-offset-4">
         <p><strong><%= titleize(t(:place)) %>:</strong></p>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <p><%= @book.place %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2 col-md-offset-4">
         <p><strong><%= titleize(t(:release_date)) %>:</strong></p>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <p><%= @book.release_date %></p>
     </div>
 </div>
 <br>
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2 col-md-offset-4">
         <p><strong><%= titleize(t(:pages)) %>:</strong></p>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <p><%= @book.pages %></p>
     </div>
 </div>
@@ -93,7 +91,7 @@
   <div class="panel-heading"><strong><%= titleize(t(:photo)) %>:</strong></div>
   <div class="panel-body">
      <% if @book.photo.present? %>
-        <%= image_tag(@book.photo, :width => 600) %>
+        <%= image_tag(@book.photo, width: 600) %>
      <% else %>
         <p><%= I18n.t(:zero_possibility) %></p>
      <% end %>
@@ -101,7 +99,7 @@
 </div>
 <br>
 <% if current_user.admin? %>
-    <%= link_to titleize(t(:edit)), edit_book_path(@book) %>
+    <%= link_to titleize(t(:edit)), edit_book_path(@book) %> |
 <% end %>
 <%= link_to titleize(t(:back)), books_path %>
 </div>

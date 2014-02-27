@@ -1,12 +1,12 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      <%= t(:form_contains, ile: @user.errors.count) %>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li>* <%= msg %></li>
-    <% end %>
-    </ul>
+        <p style="margin: 0px 20px"><%= t(:form_contains, ile: @user.errors.count) %></p>
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li> <%= msg %></li>
+            <% end %>
+        </ul>
     </div>
   </div>
 <% end %>

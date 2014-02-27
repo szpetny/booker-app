@@ -46,6 +46,7 @@ pl:
   edit_user: "edytuj użytkownika"
   profile_updated: "Profil został zmieniony"
   user_destroyed: "Użytkownik został usunięty"
+  confirm_password: "Aby zakończyć edycję uzupełnij hasło"
 
   book_categories: "kategorie książek"
 
@@ -156,6 +157,7 @@ pl:
           attributes:
             password:
               too_short: "za krótkie"   
+              blank: "nie może być puste"
             password_confirmation:
               confirmation: "brak potwierdzenia"
               blank: "nie może być puste"

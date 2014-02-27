@@ -6,5 +6,6 @@
 
 <%= render 'form' %>
 
-<%= link_to titleize(t(:back)), author_path %>
+<%= link_to titleize(t(:show)), @author %> |
+<%= link_to titleize(t(:back)), authors_path %>
 </div>

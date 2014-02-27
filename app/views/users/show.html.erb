@@ -1,35 +1,37 @@
 <% provide(:page_title, @user.name) %>
 <div class="well">
-<div class="page-header">
-    <h2><%= titleize(t(:profile))%></h2>
-</div>
-<div class="row">
-  <aside class="span4">
-    <section style="margin: 0 10px">
-      <h1>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-</div>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong><%= titleize(t(:name))%>:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:surname))%>:</strong>
-  <%= @user.surname %>
-</p>
-
-<p>
-  <strong><%= titleize(t(:email))%>:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to link_to titleize(t(:edit)), edit_user_path(@user) %> |
-<%= link_to link_to titleize(t(:back)), users_path %>
+    <div class="page-header">
+        <h1><%= titleize(t(:profile))%></h1>
+    </div>
+    <p id="notice"><%= notice %></p>
+    
+    <div class="row">
+        <div class="col-sm-2 col-md-offset-3">
+            <p><strong><%= titleize(t(:name)) %>:</strong></p>
+        </div>
+        <div class="col-sm-3">
+            <p><%= @user.name %></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-2 col-md-offset-3">
+            <p><strong><%= titleize(t(:surname)) %>:</strong></p>
+        </div>
+        <div class="col-sm-3">
+            <p><%= @user.surname %></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-2 col-md-offset-3">
+            <p><strong><%= titleize(t(:email)) %>:</strong></p>
+        </div>
+        <div class="col-sm-3">
+            <p><%= @user.email %></p>
+        </div>
+    </div>
+    
+    <%= link_to link_to titleize(t(:edit)), edit_user_path(@user) %> |
+    <%= link_to link_to titleize(t(:back)), users_path %>
 </div>

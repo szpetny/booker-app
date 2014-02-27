@@ -1,20 +1,19 @@
 <% provide(:page_title, titleize(t(:edit_profile))) %>
 <div class="well">
-<div class="page-header">
-    <h1><%= titleize(t(:edit_profile)) %></h1>
-</div>
-
-<div class="span6 offset3">
-		<%= form_for(@user, :html => { :class => "form-horizontal"}) do |f| %>
-		<%= render 'fields', f: f %>
-        <br />
-        <div class="form-group">
-             <div class="col-sm-offset-2 col-sm-10">
-                <%= f.submit titleize(t(:save)), class: "btn btn-primary"  %>
-             </div>
-        </div>
-		
-		<% end %>
-		<%= link_to titleize(t(:back)), @user %>
-</div>
+    <div class="page-header">
+        <h1><%= titleize(t(:edit_profile)) %></h1>
+    </div>
+    
+    <div class="span6 offset3">
+    		<%= form_for(@user, html: {class: "form-horizontal"}) do |f| %>
+    		<%= render 'fields', f: f %>
+            <br />
+            <div class="form-group">
+                 <div class="col-sm-offset-2 col-sm-10">
+                    <%= f.submit titleize(t(:save)), class: "btn btn-primary"  %>
+                 </div>
+            </div>
+    		<% end %>
+    		<%= link_to titleize(t(:back)), @user %>
+    </div>
 </div>

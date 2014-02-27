@@ -28,7 +28,7 @@ describe BookCategoriesController do
     end
 
     it "routes to #destroy" do
-      delete("/book_categories/1").should route_to("book_categories#destroy", :id => "1")
+      delete("/book_categories/1").should route_to("book_categories#destroy", id: "1")
     end
 
   end

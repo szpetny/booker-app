@@ -1,3 +1,5 @@
+require 'pp'
+
 class UsersController < ApplicationController
   before_action :admin_user,     only: [:index, :destroy]
   before_action :correct_user,   only: [:edit, :update, :show, :destroy]
@@ -40,10 +42,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if @user_to_edit.update_attributes(user_params)
+    if @user_to_edit.update(user_params)
       flash[:success] = I18n.t(:profile_updated)
       redirect_to @user_to_edit
     else
+      flash[:notice] = I18n.t(:confirm_password)
       render 'edit'
     end
   end
@@ -65,7 +68,7 @@ class UsersController < ApplicationController
     # Before filters
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user) || current_user.admin?
+      redirect_to(root_url) unless current_user?(@user) || (current_user != nil && current_user.admin?)
     end
     
     def set_user_to_edit_by_admin

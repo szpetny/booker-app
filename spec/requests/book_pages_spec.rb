@@ -2,60 +2,42 @@ require 'spec_helper'
 
 describe "Book pages" do
 
-  subject { page }
+  subject {page}
   
-  describe "index" do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:book) { FactoryGirl.create(:book) }
+  describe "index for a normal user" do
+    let(:user) {FactoryGirl.create(:user)}
+    let(:book) {FactoryGirl.create(:book)}
     
     before do
-      visit root_path
-    end
-    
-    describe "add book is invisible for not signed users" do
-      it { should_not have_link(titleize(I18n.t(:add_book))) }
-    end
-    
-    before do
+      book.save
       sign_in user
       visit books_path
     end
-
-    describe "add book" do
-      describe "when user is not an admin" do
-        it { should_not have_link(titleize(I18n.t(:add_book))) }
-      end
-      
-      describe "as an admin" do
-        let(:admin) { FactoryGirl.create(:admin) }
-        
-        before do
-          sign_in admin
-          visit books_path
-        end
-        
-        it { should have_link(titleize(I18n.t(:add_book))) }
-      end
+    
+    it {should have_content(titleize(I18n.t(:books_index)))}
+    it {should have_content(book.title)}
+    it {should_not have_link(titleize(I18n.t(:add_book)))}
+    it {should have_link(titleize(I18n.t(:show)), href: book_path(book))}
+    it {should_not have_link(titleize(I18n.t(:edit)), href: edit_book_path(book))}
+    it {should_not have_link(titleize(I18n.t(:destroy)))}
+  end
+  
+  describe "index for an admin" do
+    let(:admin) {FactoryGirl.create(:admin)}
+    let(:book) {FactoryGirl.create(:book)}
+    
+    before do
+      book.save
+      sign_in admin
+      visit books_path
     end
     
-    describe "delete links" do
-      it { should_not have_link(titleize(I18n.t(:destroy))) }
-
-      describe "as an admin user" do
-        let(:admin) { FactoryGirl.create(:admin) }
-        before do
-          sign_in admin
-          visit books_path
-        end
-
-        it { should have_link(titleize(I18n.t(:destroy)), href: book_path(Book.first)) }
-        it "should be able to delete another book" do
-          expect do
-            click_link(titleize(I18n.t(:destroy)), match: :first)
-          end.to change(Book, :count).by(-1)
-        end
-      end
-    end
+    it {should have_content(titleize(I18n.t(:books_index)))}
+    it {should have_content(book.title)}
+    it {should have_link(titleize(I18n.t(:add_book)))}
+    it {should have_link(titleize(I18n.t(:show)), href: book_path(book))}
+    it {should have_link(titleize(I18n.t(:edit)), href: edit_book_path(book))}
+    it {should have_link(titleize(I18n.t(:destroy)), href: book_path(book))}
   end
 
 end
